@@ -1,24 +1,33 @@
-# README
+# Car advertisements web
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Requirements
 
-Things you may want to cover:
+- Ruby 3.1.3
+- Rails 7.0.4
 
-* Ruby version
+#### 1. Clone the repository
 
-* System dependencies
+```zsh
+git@github.com:yaroslavrick/car_advertisements_web.git
+cd car_advertisements_web
+```
 
-* Configuration
+#### 2. Install dependencies
 
-* Database creation
+```zsh
+bundle
+```
 
-* Database initialization
+#### 3. Create and setup the database
 
-* How to run the test suite
+```zsh
+rails db:create && rails db:migrate && rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+#### 4. Start the app
 
-* Deployment instructions
+```zsh
+rails s
+```
 
-* ...
+Visit the app at http://localhost:3000
