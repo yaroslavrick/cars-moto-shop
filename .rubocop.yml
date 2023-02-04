@@ -2,6 +2,7 @@ require:
   - rubocop-md
   - rubocop-rake
   - rubocop-performance
+  - rubocop-rails
 
 AllCops:
   TargetRubyVersion: 3.0

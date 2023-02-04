@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -16,11 +18,11 @@ gem 'sassc-rails', '~> 2.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
-gem 'tzinfo-data', '~> 2.0.6', platforms: %i[ mingw mswin x64_mingw jruby ]
+gem 'tzinfo-data', '~> 2.0.6', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
-  gem 'debug', '~> 1.7.1', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
   gem 'fasterer', '~> 0.10.0'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec', '~> 3.12.0'
