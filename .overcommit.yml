@@ -15,11 +15,18 @@
 #
 # Uncomment the following lines to make the configuration take effect.
 
-#PreCommit:
-#  RuboCop:
-#    enabled: true
-#    on_warn: fail # Treat all warnings as failures
-#
+PreCommit:
+  RuboCop:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+  Fasterer:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+    problem_on_unmodified_line: ignore
+    command: ['bundle', 'exec', 'fasterer']
+  BundleAudit:
+    enabled: true
+    command: ['bundle', 'exec', 'bundler-audit', 'check', '--update']
 #  TrailingWhitespace:
 #    enabled: true
 #    exclude:
