@@ -34,3 +34,5 @@
 /.idea/*
 
 .rubocop_todo.yml
+
+.env

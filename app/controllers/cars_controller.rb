@@ -6,6 +6,7 @@ class CarsController < ApplicationController
   # GET /cars or /cars.json
   def index
     @cars = Car.all
+    # @pagy, @cars = pagy(Car.all), link_extra: 'data-turbo-frame="pagination_pagy"'
   end
 
   # GET /cars/1 or /cars/1.json

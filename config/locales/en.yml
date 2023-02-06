@@ -1,4 +1,6 @@
 en:
+  en: English
+  ua: Ukrainian
   activerecord:
     models:
       car: Car

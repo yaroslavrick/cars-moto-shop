@@ -1,4 +1,6 @@
 ua:
+  en: English
+  ua: Українська
   activerecord:
     models:
       car: Тачки
