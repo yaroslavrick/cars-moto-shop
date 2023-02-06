@@ -1,6 +1,7 @@
-<h1><%= 'Hello world!' %></h1>
-<button>Help</button>
-<button>Cars List</button>
+<h1><%= 'Welcome to Car Advertisements Web!' %></h1>
+<%= button_to "Help", help_index_path,  {:method => :get, :class => "btn btn-primary"}  %>
+<%= button_to "Cars List", cars_path,  {:method => :get, :class => "btn btn-primary"}  %>
+
 <button>Search</button>
 
 <!--if isn’t logged in-->

@@ -1,4 +1,10 @@
 <div id="<%= dom_id car %>">
+
+  <p>
+    <strong><%= t('.id') %></strong>
+    <%= car.id %>
+  </p>
+
   <p>
     <strong><%= t('.make') %></strong>
     <%= car.make %>
@@ -27,6 +33,11 @@
   <p>
     <strong><%= t('.description') %></strong>
     <%= car.description %>
+  </p>
+
+  <p>
+    <strong><%= t('.created_at') %></strong>
+    <%= car.created_at %>
   </p>
 
 </div>

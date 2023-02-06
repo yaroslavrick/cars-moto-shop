@@ -2,13 +2,27 @@
 
 <h1><%= t(".cars") %></h1>
 
+<div class="d-flex">
+    <p><%= t(".total_cars_count") %></p>
+    <p class=""><b><%= @cars.count %></b></p>
+</div>
+
+<div>
+  <%=form_with url: cars_path, method: :get, data: { turbo: false }, class: 'cars-form' do |f| %>
+    <%= f.label t('.sort_by') %>
+    <%= f.select :sort_by, ['Date added desc', 'Date added asc', 'Price desc', 'Price asc'], selected: params[:sort_by] %>
+    <%= f.submit t('.sort'), class: "btn btn-primary" %>
+<% end %>
+</div>
+
+
 <div id="cars">
   <% @cars.each do |car| %>
     <%= render car %>
     <p>
-      <%= link_to "Show this car", car %>
+      <%= link_to t(".show_this_car"), car %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New car", new_car_path %>
+<%= link_to t(".new_car"), new_car_path %>
