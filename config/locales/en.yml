@@ -1,3 +1,28 @@
+en:
+  activerecord:
+    models:
+      car: Car
+    attributes:
+      car:
+        make: Make
+        model: Model
+        year: Year
+        odometer: Odometer
+        price: Price
+        description: Description
+  cars:
+    car:
+      make: 'Make:'
+    index:
+      cars: Cars
+  cars_controller:
+    car_was_successfully_created: "Car was successfully created."
+    car_was_successfully_updated: "Car was successfully updated."
+    car_was_successfully_destroyed: "Car was successfully destroyed."
+
+
+
+
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -28,10 +53,3 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-
-en:
-  hello: "Hello world"
-  cars_controller:
-    car_was_successfully_created: "Car was successfully created."
-    car_was_successfully_updated: "Car was successfully updated."
-    car_was_successfully_destroyed: "Car was successfully destroyed."

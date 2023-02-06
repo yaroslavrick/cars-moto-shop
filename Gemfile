@@ -14,6 +14,7 @@ gem 'overcommit', '~> 0.60.0'
 gem 'pg', '~> 1.4.5'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
+gem 'rails-i18n', '~> 7.0.0'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
@@ -29,10 +30,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.1'
   gem 'rubocop', '~> 1.44.1'
   gem 'rubocop-md', '~> 1.2.0'
-  gem 'rubocop-performance', '~> 1.15.2'
-  gem 'rubocop-rails', '~> 2.17.4'
-  gem 'rubocop-rake', '~> 0.6.0'
-  gem 'rubocop-rspec', '~>2.18.1'
+  gem 'rubocop-performance', '~> 1.16'
+  gem 'rubocop-rails', '~> 2.17'
+  gem 'rubocop-rake', '~> 0.6'
+  gem 'rubocop-rspec', '~>2.18'
 end
 
 group :development do

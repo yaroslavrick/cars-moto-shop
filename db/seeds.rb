@@ -13,6 +13,7 @@
     model: FFaker::Vehicle.model,
     year: FFaker::Vehicle.year,
     odometer: FFaker::Random.rand(1..300_000),
-    price: FFaker::Random.rand(1000..500_00)
+    price: FFaker::Random.rand(1000..500_00),
+    description: FFaker::Book.description
   )
 end
