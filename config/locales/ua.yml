@@ -1,9 +1,13 @@
 ua:
   en: English
   ua: Українська
+  cars_controller:
+    car_was_successfully_created: "Машина успішно створена."
+    car_was_successfully_updated: "Машина успішно оновлена."
+    car_was_successfully_destroyed: "Машина успішно знищена."
   activerecord:
     models:
-      car: Тачки
+      car: Авто
     attributes:
       car:
         make: Марка
@@ -12,17 +16,20 @@ ua:
         odometer: Пробіг
         price: Ціна
         description: Опис
-  cars_controller:
-    car_was_successfully_created: "Машина успішно створена."
-    car_was_successfully_updated: "Машина успішно оновлена."
-    car_was_successfully_destroyed: "Car was successfully destroyed."
   cars:
     index:
       cars: Тачки
+      total_cars_count: 'Всього знайдено авто:'
+      sort_by: 'Сортувати по:'
+      sort: Відсортувати
+      new_car: Нове авто
+      show_this_car: Показати це авто
     car:
+      id: 'id:'
       make: 'Марка:'
       model: 'Модель:'
       year: 'Рік:'
       odometer: 'Пробіг:'
       price: 'Ціна:'
       description: 'Опис:'
+      created_at: 'Дата створення:'

@@ -1,6 +1,10 @@
 en:
   en: English
   ua: Ukrainian
+  cars_controller:
+    car_was_successfully_created: "Car was successfully created."
+    car_was_successfully_updated: "Car was successfully updated."
+    car_was_successfully_destroyed: "Car was successfully destroyed."
   activerecord:
     models:
       car: Car
@@ -13,14 +17,24 @@ en:
         price: Price
         description: Description
   cars:
-    car:
-      make: 'Make:'
     index:
       cars: Cars
-  cars_controller:
-    car_was_successfully_created: "Car was successfully created."
-    car_was_successfully_updated: "Car was successfully updated."
-    car_was_successfully_destroyed: "Car was successfully destroyed."
+      total_cars_count: 'Total count of found cars:'
+      sort_by: 'Sort by:'
+      sort: Sort
+      new_car: New car
+      show_this_car: Show this car
+    car:
+      id: 'id:'
+      make: 'Make:'
+      model: 'Model:'
+      year: 'Year:'
+      odometer: 'Odometer:'
+      price: 'Price:'
+      description: 'Description:'
+      created_at: 'Date added:'
+
+
 
 
 
