@@ -14,8 +14,7 @@ class CarsController < ApplicationController
   def index
     @cars = Car.all
     @cars = @cars.order(**SORTING[params[:sort_by]]) if params[:sort_by].present?
-    paginate
-    # @pagy, @cars = pagy(Car.all), link_extra: 'data-turbo-frame="pagination_pagy"'
+    @pagy, @cars = pagy @cars
   end
 
   # GET /cars/1 or /cars/1.json
@@ -77,9 +76,5 @@ class CarsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def car_params
     params.require(:car).permit(:make, :model, :year, :odometer, :price, :description)
-  end
-
-  def paginate
-    #   todo
   end
 end
