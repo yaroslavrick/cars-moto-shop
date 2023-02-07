@@ -4,6 +4,8 @@
 # Customize only what you really need and notice that the core Pagy works also without any of the following lines.
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
 
+require 'pagy/extras/bootstrap'
+
 # Pagy DEFAULT Variables
 # See https://ddnexus.github.io/pagy/docs/api/pagy#variables
 # All the Pagy::DEFAULT are set for all the Pagy instances but can be overridden per instance by just passing them to
@@ -12,7 +14,7 @@
 # Instance variables
 # See https://ddnexus.github.io/pagy/docs/api/pagy#instance-variables
 # Pagy::DEFAULT[:page]   = 1                                  # default
-# Pagy::DEFAULT[:items]  = 20                                 # default
+Pagy::DEFAULT[:items] = 5 # default
 # Pagy::DEFAULT[:outset] = 0                                  # default
 
 # Other Variables
