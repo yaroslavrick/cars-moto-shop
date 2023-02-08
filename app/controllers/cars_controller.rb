@@ -4,7 +4,9 @@ class CarsController < ApplicationController
   # before_action :set_car, only: %i[show edit update destroy]
 
   def index
-    @cars = SearchEngine.new(params: car_search_params).data
+    @cars = Car.all
+    @cars = CarsService::SearchEngine.new(params: car_search_params, data: @cars).data
+    @cars = CarsService::SortEngine.new(params: car_search_params, data: @cars).data
     @pagy, @cars = pagy @cars
   end
 
