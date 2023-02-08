@@ -29,7 +29,7 @@ module CarsService
     def search_by(rule, option)
       return data if rule.blank?
 
-      data.where('option => :rule', { option: option.to_sym, rule: rule.to_sym })
+      data.where(option.to_sym => rule.to_sym)
     end
 
     def search_by_range_options
