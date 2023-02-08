@@ -7,6 +7,7 @@ class CarsController < ApplicationController
     @cars = Car.all
     @cars = CarsService::SearchEngine.new(params: car_search_params, data: @cars).data if car_search_params.present?
     @cars = CarsService::SortEngine.new(params: car_sort_params, data: @cars).data if car_sort_params.present?
+    # @cars = CarsService::SuperSort.new(params: car_sort_params, data: @cars).call if car_sort_params.present?
     @pagy, @cars = pagy @cars
   end
 
