@@ -9,43 +9,43 @@
 
         <li class="nav-item">
           <a class="nav-link" href="<%= root_path %>">
-            Home
+            <%= t('.home') %>
           </a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" href="<%= help_index_path %>">
-            Help
+            <%= t('.help') %>
           </a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" href="<%= cars_path %>">
-            Cars List
+            <%= t('.cars_list') %>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="<%= search_index_path %>">
+            <%= t('.search') %>
           </a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" href="#">
-            Search
+            <%= t('.login') %>
           </a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" href="#">
-            Login
+            <%= t('.sign_up') %>
           </a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" href="#">
-            Sign Up
-          </a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="#">
-            My searches
+            <%= t('.my_searches') %>
           </a>
         </li>
         <%= render partial: 'shared/translation_drop_menu' %>
