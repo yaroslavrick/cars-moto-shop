@@ -2,7 +2,7 @@
 
 module CarsService
   class SuperSearch
-    attr_reader :data, :condition
+    attr_reader :data, :params
 
     def initialize(params:, data:)
       @params = params
@@ -27,39 +27,39 @@ module CarsService
     end
 
     def apply_make
-      return if @params[:make].blank?
+      return if params[:make].blank?
 
-      @condition.merge!(make: @params['make'])
+      @condition.merge!(make: params['make'])
     end
 
     def apply_model
-      return if @params[:model].blank?
+      return if params[:model].blank?
 
-      @condition.merge!(model: @params['model'])
+      @condition.merge!(model: params['model'])
     end
 
     def apply_year_from
-      return if @params['year_from'].blank?
+      return if params['year_from'].blank?
 
-      @condition.merge!('year >= ?', @params['year_from'].to_i)
+      @condition.merge!('year >= ?', params['year_from'].to_i)
     end
 
     def apply_year_to
-      return if @params['year_to'].blank?
+      return if params['year_to'].blank?
 
-      @condition.merge!('year >= ?', @params['year_to'].to_i)
+      @condition.merge!('year >= ?', params['year_to'].to_i)
     end
 
     def apply_price_from
-      return if @params['price_from'].blank?
+      return if params['price_from'].blank?
 
-      @condition.merge!('price >= ?', @params['price_from'].to_i)
+      @condition.merge!('price >= ?', params['price_from'].to_i)
     end
 
     def apply_price_to
-      return if @params['price_to'].blank?
+      return if params['price_to'].blank?
 
-      @condition.merge!('price >= ?', @params['price_to'].to_i)
+      @condition.merge!('price >= ?', params['price_to'].to_i)
     end
   end
 end
