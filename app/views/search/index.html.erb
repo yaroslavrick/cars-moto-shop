@@ -1,0 +1,33 @@
+<h2><%= t('shared.header.search') %></h2>
+
+<div>
+  <%= form_with url: cars_path, method: :get, data: { turbo: false }, class: 'cars-form' do |f|  %>
+    <div>
+      <%= f.label :make, t('cars.car.make') %>
+      <%= f.text_field :make, placeholder: t('cars.car.make').downcase  %>
+    </div>
+    <div>
+      <%= f.label :model, t('cars.car.model') %>
+      <%= f.text_field :model, placeholder: t('cars.car.model').downcase  %>
+    </div>
+    <div>
+      <%= f.label :year_from, t('.year_from') %>
+      <%= f.text_field :year_from, placeholder: t('.year_from').downcase  %>
+    </div>
+    <div>
+      <%= f.label :year_to, t('.year_to') %>
+      <%= f.text_field :year_to, placeholder: t('.year_to').downcase  %>
+    </div>
+    <div>
+      <%= f.label :price_from, t('.price_from') %>
+      <%= f.text_field :price_from, placeholder: t('.price_from').downcase %>
+    </div>
+    <div>
+      <%= f.label :price_to, t('.price_to') %>
+      <%= f.text_field :price_to, placeholder: t('.price_to').downcase  %>
+    </div>
+    <%= f.submit t('.submit'), formaction: cars_path, class: "btn btn-primary mt-2" %>
+  <% end %>
+</div>
+
+<%= render partial: 'shared/button_back_to_home_page' %>

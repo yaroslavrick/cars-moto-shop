@@ -16,6 +16,22 @@ en:
         odometer: Odometer
         price: Price
         description: Description
+  shared:
+    header:
+      home: Home
+      help: Help
+      cars_list: Cars List
+      search: Search
+      login: Login
+      sign_up: Sign Up
+      my_searches: My searches
+    button_back_to_home_page:
+      back_to_home_page: Back to home page
+  home:
+    index:
+      help: Help
+      cars_list: Cars list
+      search: Search
   cars:
     index:
       cars: Cars
@@ -33,6 +49,14 @@ en:
       price: 'Price:'
       description: 'Description:'
       created_at: 'Date added:'
+  search:
+    index:
+      year_from: 'Year from:'
+      year_to: 'Year to:'
+      price_from: 'Price from:'
+      price_to: 'Price to:'
+      submit: 'Submit'
+
 
 
 

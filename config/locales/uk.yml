@@ -16,6 +16,22 @@ uk:
         odometer: Пробіг
         price: Ціна
         description: Опис
+  shared:
+    header:
+      home: Додому
+      help: Допомога
+      cars_list: Список авто
+      search: Пошук
+      login: Вхід
+      sign_up: Зеєстрація
+      my_searches: Мої пошуки
+    button_back_to_home_page:
+      back_to_home_page: Назад до головної сторінки
+  home:
+    index:
+      help: Допомога
+      cars_list: Список авто
+      search: Пошук
   cars:
     index:
       cars: Тачки
@@ -33,3 +49,10 @@ uk:
       price: 'Ціна:'
       description: 'Опис:'
       created_at: 'Дата створення:'
+  search:
+    index:
+      year_from: 'Рік з:'
+      year_to: 'Рік по:'
+      price_from: 'Ціна з:'
+      price_to: 'Ціна по:'
+      submit: 'Прийняти'
