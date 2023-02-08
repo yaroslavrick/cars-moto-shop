@@ -10,7 +10,7 @@
 <div class="mb-2">
   <%= form_with url: cars_path, method: :get, data: { turbo: false }, class: 'cars-form' do |f| %>
     <%= f.label t('.sort_by') %>
-    <%= f.select :sort_by, ['Date added desc', 'Date added asc', 'Price desc', 'Price asc'], selected: params[:sort_by] %>
+    <%= f.select :sort_by, ['Created_at desc', 'Created_at added asc', 'Price desc', 'Price asc'], selected: params[:sort_by] %>
     <%= f.submit t('.sort'), class: "btn btn-primary" %>
 <% end %>
 </div>

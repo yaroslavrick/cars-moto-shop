@@ -12,7 +12,6 @@ module CarsService
 
     def call
       @data = search
-      @data = sort
     end
 
     private
@@ -30,7 +29,7 @@ module CarsService
     def search_by(rule, option)
       return data if rule.blank?
 
-      data.where(':option: :rule', { rule:, option: })
+      data.where('option => :rule', { option: option.to_sym, rule: rule.to_sym })
     end
 
     def search_by_range_options
@@ -42,12 +41,6 @@ module CarsService
       return if data.empty?
 
       data.where(':rule >= :from AND :rule <= :to', { rule:, from:, to: })
-    end
-
-    def sort
-      return data if params[:sort_by].blank?
-
-      data.order(**SORTING[params[:sort_by]]) if params[:sort_by].present?
     end
   end
 end
