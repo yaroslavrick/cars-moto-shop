@@ -9,6 +9,9 @@
 
 <div class="mb-2">
   <%= form_with url: cars_path, method: :get, data: { turbo: false }, class: 'cars-form' do |f| %>
+    <% params.fetch(:filer_params, {}).each do |k, v| %>
+        <%= hidden_field_tag "filter_params[#{k}]", v %>
+    <% end %>
     <%= f.label t('.sort_by') %>
     <%= f.select :sort_by, ['Created_at desc', 'Created_at asc', 'Price desc', 'Price asc'], selected: params[:sort_by] %>
     <%= f.submit t('.sort'), class: "btn btn-primary" %>

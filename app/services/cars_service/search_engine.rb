@@ -11,7 +11,8 @@ module CarsService
     end
 
     def call
-      @data = search
+      search
+      @data
     end
 
     private
@@ -29,7 +30,7 @@ module CarsService
     def search_by(rule, option)
       return data if rule.blank?
 
-      data.where(option.to_sym => rule.to_sym)
+      @data.where(option.to_sym => rule.to_sym)
     end
 
     def search_by_range_options
@@ -40,7 +41,7 @@ module CarsService
     def search_by_range(from, to, rule)
       return if data.empty?
 
-      data.where(':rule >= :from AND :rule <= :to', { rule:, from:, to: })
+      @data.where(':rule >= :from AND :rule <= :to', { rule:, from:, to: })
     end
   end
 end
