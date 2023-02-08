@@ -2,9 +2,16 @@
 
 module CarsService
   class SortEngine
+    # SORTING = {
+    #   'Date added asc' => { created_at: :asc },
+    #   'Date added desc' => { created_at: :desc },
+    #   'Price asc' => { price: :asc },
+    #   'Price desc' => { price: :desc }
+    # }.freeze
+
     SORTING = {
-      'Date added asc' => { created_at: :asc },
-      'Date added desc' => { created_at: :desc },
+      'Created_at asc' => { created_at: :asc },
+      'Created_at desc' => { created_at: :desc },
       'Price asc' => { price: :asc },
       'Price desc' => { price: :desc }
     }.freeze
