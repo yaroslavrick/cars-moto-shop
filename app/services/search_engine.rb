@@ -17,7 +17,7 @@ class SearchEngine
   end
 
   def call
-    search
+    @data = search
     @data = sort
   end
 
