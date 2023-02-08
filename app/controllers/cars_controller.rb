@@ -5,8 +5,8 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    @cars = CarsService::SearchEngine.new(params: car_search_params, data: @cars).data
-    @cars = CarsService::SortEngine.new(params: car_search_params, data: @cars).data
+    @cars = CarsService::SearchEngine.new(params: car_search_params, data: @cars).data if car_search_params.present?
+    @cars = CarsService::SortEngine.new(params: car_sort_params, data: @cars).data if car_sort_params.present?
     @pagy, @cars = pagy @cars
   end
 
@@ -22,7 +22,12 @@ class CarsController < ApplicationController
   # end
 
   def car_search_params
-    params.permit(:make, :model, :year_from, :year_to, :price_from, :price_to, :sort_by, :locale, :commit, :page)
+    # params.permit(:make, :model, :year_from, :year_to, :price_from, :price_to, :sort_by, :locale, :commit, :page)
+    params.permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
+  end
+
+  def car_sort_params
+    params.permit(:sort_by)
   end
 
   def search_car
