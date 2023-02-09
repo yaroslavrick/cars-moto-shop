@@ -10,6 +10,7 @@ gem 'dotenv-rails', '~> 2.7.6'
 gem 'ffaker', '~> 2.21.0'
 gem 'importmap-rails', '~> 1.1.5'
 gem 'jbuilder', '~> 2.11.5'
+gem 'jquery-rails', '~> 4.5.1'
 gem 'overcommit', '~> 0.60.0'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4.5'
@@ -21,7 +22,6 @@ gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
 gem 'tzinfo-data', '~> 2.0.6', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'will_paginate'
 
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
