@@ -2,12 +2,9 @@
 
 module CarsService
   class SearchEngine
-    attr_reader :params, :data
-
     def initialize(params:, data:)
       @params = params
       @data = data
-      call
     end
 
     def call
@@ -18,30 +15,36 @@ module CarsService
     private
 
     def search
-      search_by_rule_options
-      search_by_range_options
+      search_by_make
+      search_by_model
+      search_by_year_from
+      search_by_year_to
+      search_by_price_from
+      search_by_price_to
     end
 
-    def search_by_rule_options
-      search_by(params[:make], 'make')
-      search_by(params[:model], 'model')
+    def search_by_make
+      @data = @data.where(make: @params['make']) if @params['make'].present?
     end
 
-    def search_by(rule, option)
-      return data if rule.blank?
-
-      @data.where(option.to_sym => rule.to_sym)
+    def search_by_model
+      @data = @data.where(model: @params['model']) if @params['model'].present?
     end
 
-    def search_by_range_options
-      search_by_range(params[:price_from], params[:price_to], 'price')
-      search_by_range(params[:year_from], params[:year_to], 'year')
+    def search_by_year_from
+      @data = @data.where('year >= ?', @params['year_from'].to_i) if @params['year_from'].present?
     end
 
-    def search_by_range(from, to, rule)
-      return if data.empty?
+    def search_by_year_to
+      @data = @data.where('year <= ?', @params['year_to'].to_i) if @params['year_to'].present?
+    end
 
-      @data.where(':rule >= :from AND :rule <= :to', { rule:, from:, to: })
+    def search_by_price_from
+      @data = @data.where('price >= ?', @params['price_from'].to_i) if @params['year_from'].present?
+    end
+
+    def search_by_price_to
+      @data = @data.where('price <= ?', @params['price_to'].to_i) if @params['year_to'].present?
     end
   end
 end
