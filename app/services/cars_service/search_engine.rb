@@ -24,26 +24,38 @@ module CarsService
     end
 
     def search_by_make
-      @data = @data.where(make: @params['make']) if @params['make'].present?
+      return @data if @params['make'].blank?
+
+      @data = @data.where(make: @params['make'])
     end
 
     def search_by_model
-      @data = @data.where(model: @params['model']) if @params['model'].present?
+      return @data if @params['model'].blank?
+
+      @data = @data.where(model: @params['model'])
     end
 
     def search_by_year_from
-      @data = @data.where('year >= ?', @params['year_from'].to_i) if @params['year_from'].present?
+      return @data if @params['year_from'].blank?
+
+      @data = @data.where('year >= ?', @params['year_from'].to_i)
     end
 
     def search_by_year_to
-      @data = @data.where('year <= ?', @params['year_to'].to_i) if @params['year_to'].present?
+      return @data if @params['year_to'].blank?
+
+      @data = @data.where('year <= ?', @params['year_to'].to_i)
     end
 
     def search_by_price_from
-      @data = @data.where('price >= ?', @params['price_from'].to_i) if @params['year_from'].present?
+      return @data if @params['price_from'].blank?
+
+      @data = @data.where('price >= ?', @params['price_from'].to_i)
     end
 
     def search_by_price_to
+      return @data if @params['price_to'].blank?
+
       @data = @data.where('price <= ?', @params['price_to'].to_i) if @params['year_to'].present?
     end
   end
