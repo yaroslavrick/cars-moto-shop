@@ -5,8 +5,8 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    # @cars = CarsService::MegaSearch.new(params: params['filter_params'], data: @cars).call if params['filter_params']
-    @cars = CarsService::SuperSearch.new(params: params['filter_params'], data: @cars).call if params['filter_params']
+    @cars = CarsService::MegaSearch.new(params: params['filter_params'], data: @cars).call if params['filter_params']
+    # @cars = CarsService::SuperSearch.new(params: params['filter_params'], data: @cars).call if params['filter_params']
     @cars = CarsService::SuperSort.new(params: params[:sort_by], data: @cars).call if params[:sort_by]
     # @cars = CarsService::SearchEngine.new(params: car_search_params, data: @cars).data if car_search_params.present?
     # @cars = CarsService::SortEngine.new(params: car_sort_params, data: @cars).data if car_sort_params.present?
