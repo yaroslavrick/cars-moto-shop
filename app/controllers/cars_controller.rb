@@ -5,11 +5,10 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    @cars = CarsService::MegaSearch.new(params: params['filter_params'], data: @cars).call if params['filter_params']
-    # @cars = CarsService::SuperSearch.new(params: params['filter_params'], data: @cars).call if params['filter_params']
-    @cars = CarsService::SuperSort.new(params: params[:sort_by], data: @cars).call if params[:sort_by]
-    # @cars = CarsService::SearchEngine.new(params: car_search_params, data: @cars).data if car_search_params.present?
-    # @cars = CarsService::SortEngine.new(params: car_sort_params, data: @cars).data if car_sort_params.present?
+    @cars = CarsService::SearchEngine.new(params: params['filter_params'], data: @cars).call if search_params.present?
+
+    @cars = CarsService::SortEngine.new(params: params[:sort_by], data: @cars).call if sort_params.present?
+
     @pagy, @cars = pagy @cars
   end
 
@@ -19,21 +18,14 @@ class CarsController < ApplicationController
 
   private
 
-  # Only allow a list of trusted parameters through.
-  # def car_params
-  #   params.require(:car).permit(:make, :model, :year, :odometer, :price, :description)
-  # end
+  def search_params
+    return false if params['filter_params'].blank?
 
-  def car_search_params
     # params.permit(:make, :model, :year_from, :year_to, :price_from, :price_to, :sort_by, :locale, :commit, :page)
-    params.permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
+    params['filter_params'].permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
   end
 
-  def car_sort_params
+  def sort_params
     params.permit(:sort_by)
-  end
-
-  def search_car
-    @car = Lib::SearchEngine.new(params: car_search_params)
   end
 end

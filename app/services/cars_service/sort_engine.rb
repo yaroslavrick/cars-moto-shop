@@ -2,31 +2,15 @@
 
 module CarsService
   class SortEngine
-    SORTING = {
-      'Created_at asc' => { created_at: :asc },
-      'Created_at desc' => { created_at: :desc },
-      'Price asc' => { price: :asc },
-      'Price desc' => { price: :desc }
-    }.freeze
-
-    attr_reader :params, :data
+    attr_reader :data
 
     def initialize(params:, data:)
       @params = params
       @data = data
-      call
     end
 
     def call
-      @data = sort
-    end
-
-    private
-
-    def sort
-      return data if params[:sort_by].blank?
-
-      data.order(**SORTING[params[:sort_by]]) if params[:sort_by].present?
+      @data.order(@params)
     end
   end
 end
