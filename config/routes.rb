@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   get 'login/index'
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     root 'home#index'

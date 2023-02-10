@@ -25,6 +25,7 @@ uk:
       login: Вхід
       sign_up: Зеєстрація
       my_searches: Мої пошуки
+      logout: Вийти
     button_back_to_home_page:
       back_to_home_page: Назад до головної сторінки
   home:
@@ -32,6 +33,11 @@ uk:
       help: Допомога
       cars_list: Список авто
       search: Пошук
+      welcome_to: "Вітаємо в %{site_name}!"
+  help:
+    index:
+      help_menu: Ви в меню допомоги.
+      recommendation: Якщо Ви не знаєте, що робити - відкладіть усі справи та випийте гурнятко запашної гарячої кави.
   cars:
     index:
       cars: Тачки
