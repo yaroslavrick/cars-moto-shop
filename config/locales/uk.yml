@@ -55,6 +55,7 @@ uk:
       price: 'Ціна:'
       description: 'Опис:'
       created_at: 'Дата створення:'
+      back_cars_list: Назад до списку авто
   search:
     index:
       year_from: 'Рік з:'

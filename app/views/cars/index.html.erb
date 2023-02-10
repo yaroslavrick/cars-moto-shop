@@ -24,7 +24,7 @@
     <div class="row">
         <% @cars.each do |car| %>
           <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-            <%= render car %>
+            <%= render 'cars/car_card', car: car %>
           </div>
         <% end %>
     </div>
