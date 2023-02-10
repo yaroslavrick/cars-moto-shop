@@ -1,0 +1,4 @@
+uk:
+  devise:
+    logout: 'Вихід'
+    account: 'Аккаунт'

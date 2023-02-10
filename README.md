@@ -31,3 +31,8 @@ rails s
 ```
 
 Visit the app at http://localhost:3000
+
+TODO:
+
+- [ ] User is not logged in - fail login (Can't verify CSRF token authenticity.)
+- [ ] My searches page

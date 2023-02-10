@@ -25,6 +25,7 @@ en:
       login: Login
       sign_up: Sign Up
       my_searches: My searches
+      logout: Log out
     button_back_to_home_page:
       back_to_home_page: Back to home page
   home:
@@ -32,6 +33,11 @@ en:
       help: Help
       cars_list: Cars list
       search: Search
+      welcome_to: "Welcome to %{site_name}!"
+  help:
+    index:
+      help_menu: You are in a help menu.
+      recommendation: If you don not know what to do, just drink good hot coffee and take a rest.
   cars:
     index:
       cars: Cars
