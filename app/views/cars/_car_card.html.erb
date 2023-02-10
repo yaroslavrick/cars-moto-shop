@@ -5,16 +5,6 @@
     <h4 class="card-title"><%= "#{car.make} #{car.model}" %></h4>
 
     <p class="card-text">
-      <strong><%= t('.make') %></strong>
-      <%= car.make %>
-    </p>
-
-    <p class="card-text">
-      <strong><%= t('.model') %></strong>
-      <%= car.model %>
-    </p>
-
-    <p class="card-text">
       <strong><%= t('.year') %></strong>
       <%= car.year %>
     </p>
@@ -29,22 +19,8 @@
       <%= car.price %>
     </p>
 
-    <p class="card-text">
-      <strong><%= t('.description') %></strong>
-      <%= car.description %>
-    </p>
-
-    <p class="card-text">
-      <strong><%= t('.id') %></strong>
-      <%= car.id %>
-    </p>
-
-    <p class="card-text">
-      <strong><%= t('.created_at') %></strong>
-      <%= car.created_at %>
-    </p>
   </div>
   <div class="card-footer text-muted mx-auto">
-    <%= link_to t('.back_cars_list'), cars_path, class: "btn btn-primary mt-2 mb-2" %>
+    <%= link_to t("cars.index.show_this_car"), car, class: "btn btn-primary align-self-end btn-block", style: "margin-top: auto;" %>
   </div>
 </div>
