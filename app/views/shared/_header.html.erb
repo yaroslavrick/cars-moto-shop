@@ -8,35 +8,25 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" href="<%= root_path %>">
-            <%= t('.home') %>
-          </a>
+          <%= link_to t('.home'), root_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link" href="<%= help_index_path %>">
-            <%= t('.help') %>
-          </a>
+          <%= link_to t('.help'), help_index_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link" href="<%= cars_path %>">
-            <%= t('.cars_list') %>
-          </a>
+          <%= link_to t('.cars_list'), cars_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link" href="<%= search_index_path %>">
-            <%= t('.search') %>
-          </a>
+          <%= link_to t('.search'), search_index_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#">
-            <%= t('.my_searches') %>
-          </a>
+          <%= link_to t('.my_searches'), root_path, class: "nav-link" %>
         </li>
-        
+
         <%- if user_signed_in? %>
 
           <li class="nav-item dropdown">
@@ -44,15 +34,11 @@
           </li>
         <% else %>
           <li class="nav-item dropdown">
-            <a class="nav-link" href="<%= new_user_session_path %>">
-              <%= t('.login') %>
-            </a>
+            <%= link_to t('.login'), new_user_session_path, class: "nav-link" %>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link" href="<%= new_user_registration_path %>">
-              <%= t('.sign_up') %>
-            </a>
+            <%= link_to t('.sign_up'), new_user_registration_path, class: "nav-link" %>
           </li>
 
         <% end %>
