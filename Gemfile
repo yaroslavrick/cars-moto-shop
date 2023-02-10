@@ -7,7 +7,11 @@ ruby '3.1.3'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'bootstrap', '~> 5.2.3'
 gem 'devise', '~> 4.8'
+# rubocop:disable Bundler/OrderedGems
+# https://github.com/hisea/devise-bootstrap-views/issues/55
 gem 'devise-i18n', '~> 1.10.2'
+gem 'devise-bootstrap-views', '~> 1.0'
+# rubocop:enable Bundler/OrderedGems
 gem 'dotenv-rails', '~> 2.7.6'
 gem 'ffaker', '~> 2.21.0'
 gem 'importmap-rails', '~> 1.1.5'
