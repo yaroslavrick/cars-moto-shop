@@ -21,7 +21,8 @@ class CarsController < ApplicationController
   def search_params
     return false if params['filter_params'].blank?
 
-    params['filter_params'].permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
+    # params['filter_params'].permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
+    params.require(:filter_params).permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
   end
 
   def sort_params

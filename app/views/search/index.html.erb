@@ -1,33 +1,13 @@
-<h2><%= t('shared.header.search') %></h2>
+<h1>My searches</h1>
 
-<div>
-  <%= form_with url: cars_path, method: :get, data: { turbo: false }, class: 'cars-form' do |f|  %>
-    <div>
-      <%= f.label :make, t('cars.car.make') %>
-      <%= f.text_field "filter_params[make]", placeholder: t('cars.car.make').downcase  %>
-    </div>
-    <div>
-      <%= f.label :model, t('cars.car.model') %>
-      <%= f.text_field "filter_params[model]", placeholder: t('cars.car.model').downcase  %>
-    </div>
-    <div>
-      <%= f.label :year_from, t('.year_from') %>
-      <%= f.text_field "filter_params[year_from]", placeholder: t('.year_from').downcase  %>
-    </div>
-    <div>
-      <%= f.label :year_to, t('.year_to') %>
-      <%= f.text_field "filter_params[year_to]", placeholder: t('.year_to').downcase  %>
-    </div>
-    <div>
-      <%= f.label :price_from, t('.price_from') %>
-      <%= f.text_field "filter_params[price_from]", placeholder: t('.price_from').downcase %>
-    </div>
-    <div>
-      <%= f.label :price_to, t('.price_to') %>
-      <%= f.text_field "filter_params[price_to]", placeholder: t('.price_to').downcase  %>
-    </div>
-    <%= f.submit t('.submit'), formaction: cars_path, class: "btn btn-primary mt-2" %>
-  <% end %>
-</div>
+<% @user_searches.each do |search| %>
+  <p>DATE: <%= search.created_at %></p>
+  <p>make: <%= search.make %></p>
+  <p>model: <%= search.model %></p>
+  <p>year_from: <%= search.year_from %></p>
+  <p>year_to: <%= search.year_to %></p>
+  <p>price_from: <%= search.price_from %></p>
+  <p>price_to: <%= search.price_to %></p>
+<% end %>
 
 <%= render partial: 'shared/button_back_to_home_page' %>

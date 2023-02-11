@@ -57,7 +57,7 @@ en:
       created_at: 'Date added:'
       back_cars_list: Back to cars list
   search:
-    index:
+    new:
       year_from: 'Year from:'
       year_to: 'Year to:'
       price_from: 'Price from:'
