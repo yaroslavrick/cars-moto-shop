@@ -1,13 +1,30 @@
 <h1>My searches</h1>
-
-<% @user_searches.each do |search| %>
-  <p>DATE: <%= search.created_at %></p>
-  <p>make: <%= search.make %></p>
-  <p>model: <%= search.model %></p>
-  <p>year_from: <%= search.year_from %></p>
-  <p>year_to: <%= search.year_to %></p>
-  <p>price_from: <%= search.price_from %></p>
-  <p>price_to: <%= search.price_to %></p>
-<% end %>
-
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>DATE:</th>
+      <th>make:</th>
+      <th>model:</th>
+      <th>year_from:</th>
+      <th>year_to:</th>
+      <th>price_from:</th>
+      <th>price_to:</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @user_searches.each do |search| %>
+      <tr>
+        <td><%= search.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+        <td><%= search.make %></td>
+        <td><%= search.model %></td>
+        <td><%= search.year_from %></td>
+        <td><%= search.year_to %></td>
+        <td><%= search.price_from %></td>
+        <td><%= search.price_to %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 <%= render partial: 'shared/button_back_to_home_page' %>
