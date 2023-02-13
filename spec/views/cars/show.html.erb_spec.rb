@@ -12,15 +12,30 @@ RSpec.describe 'cars/show' do
                    price: '9.99',
                    description: 'Description'
                  ))
+    render
   end
 
-  it 'renders attributes in <p>' do
-    render
+  it 'renders make attribute in <p>' do
     expect(rendered).to match(/Make/)
-    # expect(rendered).to match(/Model/)
-    # expect(rendered).to match(/2/)
-    # expect(rendered).to match(/3/)
-    # expect(rendered).to match(/9.99/)
-    # expect(rendered).to match(/Description/)
+  end
+
+  it 'renders model attribute in <p>' do
+    expect(rendered).to match(/Model/)
+  end
+
+  it 'renders year attribute in <p>' do
+    expect(rendered).to match(/2/)
+  end
+
+  it 'renders odometer attribute in <p>' do
+    expect(rendered).to match(/3/)
+  end
+
+  it 'renders price attribute in <p>' do
+    expect(rendered).to match(/9.99/)
+  end
+
+  it 'renders description attribute in <p>' do
+    expect(rendered).to match(/Description/)
   end
 end
