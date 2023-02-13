@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :cars, only: %i[index show]
     resources :helps, only: %i[index]
     resources :homes, only: %i[index]
-    resources :searches, only: %i[index new create destroy]
+    resources :searches, only: %i[index new create]
   end
 end
