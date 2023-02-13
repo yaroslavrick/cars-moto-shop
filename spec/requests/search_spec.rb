@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Searches', type: :request do
+RSpec.describe 'Searches' do
   describe 'GET /index' do
     # it 'returns http success if user is not logged in' do
     #   get '/searches'
