@@ -8,6 +8,8 @@ en:
   activerecord:
     models:
       car: Car
+      search: Search
+      user: User
     attributes:
       car:
         make: Make
@@ -28,13 +30,13 @@ en:
       logout: Log out
     button_back_to_home_page:
       back_to_home_page: Back to home page
-  home:
+  homes:
     index:
       help: Help
       cars_list: Cars list
       search: Search
       welcome_to: "Welcome to %{site_name}!"
-  help:
+  helps:
     index:
       help_menu: You are in a help menu.
       recommendation: If you don not know what to do, just drink good hot coffee and take a rest.
@@ -46,6 +48,8 @@ en:
       sort: Sort
       new_car: New car
       show_this_car: Show this car
+      search_car: Search car with other params
+      no_cars_found: No cars found by your search parameters
     car:
       id: 'id:'
       make: 'Make:'
@@ -56,7 +60,17 @@ en:
       description: 'Description:'
       created_at: 'Date added:'
       back_cars_list: Back to cars list
-  search:
+  searches:
+    index:
+      my_searches: My searches
+      date: Date
+      make: Make
+      model: Model
+      year_from: Year from
+      year_to: Year to
+      price_from: Price from
+      price_to: Price to
+      search_was_successfully_destroyed: "Search was successfully destroyed."
     new:
       year_from: 'Year from:'
       year_to: 'Year to:'

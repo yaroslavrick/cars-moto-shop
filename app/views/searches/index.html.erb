@@ -1,0 +1,31 @@
+<h1>My searches</h1>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('.date').upcase %></th>
+        <th><%= t('.make').upcase %></th>
+        <th><%= t('.model').upcase %></th>
+        <th><%= t('.year_from').upcase %></th>
+        <th><%= t('.year_to').upcase %></th>
+        <th><%= t('.price_from').upcase %></th>
+        <th><%= t('.price_to').upcase %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_searches.each do |search| %>
+        <tr>
+          <td><%= search.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+          <td><%= search.make %></td>
+          <td><%= search.model %></td>
+          <td><%= search.year_from %></td>
+          <td><%= search.year_to %></td>
+          <td><%= search.price_from %></td>
+          <td><%= search.price_to %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= render partial: 'shared/button_back_to_home_page' %>
+<%== pagy_bootstrap_nav @pagy if @pagy.pages > 1 %>

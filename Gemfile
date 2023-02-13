@@ -33,6 +33,8 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
   gem 'fasterer', '~> 0.10.0'
+  # Adds step-by-step debugging and stack navigation capabilities to pry using byebug. break step next finish continue
+  gem 'pry-byebug', '~> 3.10.1'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec', '~> 3.12.0'
   gem 'rspec-rails', '~> 6.0.1'

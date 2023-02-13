@@ -15,4 +15,4 @@ def generate_year
   Time.zone.at(Time.new(1990).to_f + (rand * (Time.now.to_f - Time.new(1990).to_f))).to_date.year
 end
 
-25.times { create_car }
+50.times { create_car }

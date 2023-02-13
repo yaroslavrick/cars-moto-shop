@@ -5,12 +5,10 @@ Rails.application.routes.draw do
   get 'login/index'
   resources :cars, only: %i[index show]
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
-    root 'home#index'
+    root 'homes#index'
     resources :cars, only: %i[index show]
-    resources :help, only: %i[index]
-    resources :home, only: %i[index]
-    resources :search, only: %i[index new create]
-
-    get '/search', to: 'search#create'
+    resources :helps, only: %i[index]
+    resources :homes, only: %i[index]
+    resources :searches, only: %i[index new create destroy]
   end
 end
