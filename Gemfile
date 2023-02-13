@@ -32,6 +32,7 @@ gem 'tzinfo-data', '~> 2.0.6', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails', '~> 6.2.0'
   gem 'fasterer', '~> 0.10.0'
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug. break step next finish continue
   gem 'pry-byebug', '~> 3.10.1'

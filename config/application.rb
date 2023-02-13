@@ -38,5 +38,9 @@ module CarAdvertisementsWeb
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    #   For RSpec:
+    # config.test_framework = :rspec
+    # config.generators.test_framework = :rpsec
   end
 end
