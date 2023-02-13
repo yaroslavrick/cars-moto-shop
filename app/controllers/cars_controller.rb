@@ -7,6 +7,7 @@ class CarsController < ApplicationController
 
     @cars = CarsService::SortEngine.new(params: params[:sort_by], data: @cars).call if sort_params.present?
     @total_cars_count = @cars.count
+    # @pagy, @cars = pagy @cars
     @pagy, @cars = pagy @cars
   end
 

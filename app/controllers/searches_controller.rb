@@ -2,7 +2,6 @@
 
 class SearchesController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  # before_action :set_search, only: [:index, :destroy]
   def index
     @user_searches = Search.where(user_id: current_user.id)
     @pagy, @user_searches = pagy @user_searches, items: 10
@@ -17,15 +16,6 @@ class SearchesController < ApplicationController
     redirect_to cars_path(filter_params)
   end
 
-  def destroy
-    # @search = Search.where("id = ?", params[:user_id]).destroy_all
-    @search.destroy
-
-    respond_to do |format|
-      format.html { redirect_to searches_path, notice: I18n.t('searches.index.search_was_successfully_destroyed') }
-    end
-  end
-
   private
 
   def search_params
@@ -36,10 +26,5 @@ class SearchesController < ApplicationController
 
   def filter_params
     params.permit(filter_params: {})
-  end
-
-  def set_search
-    # @search = Search.find(params[:user_id])
-    @search = Search.where(user_id: current_user.id)
   end
 end

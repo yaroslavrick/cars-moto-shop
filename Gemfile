@@ -34,6 +34,7 @@ group :development, :test do
   gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
   # gem 'factory_bot_rails', '~> 6.2.0'
   gem 'fasterer', '~> 0.10.0'
+  gem 'fuubar', '~> 2.5.1'
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug. break step next finish continue
   gem 'pry-byebug', '~> 3.10.1'
   gem 'pry-rails', '~> 0.3.9'
