@@ -24,6 +24,7 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'sassc-rails', '~> 2.1.2'
+gem 'simplecov', '~> 0.22.0', require: false, group: :test
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
@@ -32,7 +33,7 @@ gem 'tzinfo-data', '~> 2.0.6', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
-  # gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'factory_bot_rails', '~> 6.2.0'
   gem 'fasterer', '~> 0.10.0'
   gem 'fuubar', '~> 2.5.1'
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug. break step next finish continue
