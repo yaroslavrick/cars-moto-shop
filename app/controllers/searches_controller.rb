@@ -2,7 +2,7 @@
 
 class SearchesController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :set_search, only: [:destroy]
+  # before_action :set_search, only: [:index, :destroy]
   def index
     @user_searches = Search.where(user_id: current_user.id)
     @pagy, @user_searches = pagy @user_searches, items: 10
@@ -40,6 +40,6 @@ class SearchesController < ApplicationController
 
   def set_search
     # @search = Search.find(params[:user_id])
-    @search = Search.where(user_id: params[:user_id])
+    @search = Search.where(user_id: current_user.id)
   end
 end
