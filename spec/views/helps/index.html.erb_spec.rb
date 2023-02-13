@@ -2,6 +2,6 @@
 
 require 'rails_helper'
 
-RSpec.describe 'help/index.html.erb', type: :view do
+RSpec.describe 'helps/index.html.erb' do
   pending "add some examples to (or delete) #{__FILE__}"
 end
