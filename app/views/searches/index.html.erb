@@ -29,5 +29,5 @@
 </div>
 <%= render partial: 'shared/button_back_to_home_page' %>
 <%# button_to "Destroy this search", { action: :destroy, search: @search, method: destroy} %>
-<%= link_to 'Destroy this search', @search, method: :delete, data: { confirm: "Are you sure?"} %>
+<%# link_to 'Destroy all searches', @search, method: :delete, data: { confirm: "Are you sure?"} %>
 <%== pagy_bootstrap_nav @pagy if @pagy.pages > 1 %>
