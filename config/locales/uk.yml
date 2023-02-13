@@ -8,6 +8,8 @@ uk:
   activerecord:
     models:
       car: Авто
+      search: Пошку
+      user: Користувач
     attributes:
       car:
         make: Марка
@@ -28,13 +30,13 @@ uk:
       logout: Вийти
     button_back_to_home_page:
       back_to_home_page: Назад до головної сторінки
-  home:
+  homes:
     index:
       help: Допомога
       cars_list: Список авто
       search: Пошук
       welcome_to: "Вітаємо в %{site_name}!"
-  help:
+  helps:
     index:
       help_menu: Ви в меню допомоги.
       recommendation: Якщо Ви не знаєте, що робити - відкладіть усі справи та випийте гурнятко запашної гарячої кави.
@@ -46,6 +48,8 @@ uk:
       sort: Відсортувати
       new_car: Нове авто
       show_this_car: Показати це авто
+      search_car: Шукати авто по іншим параметрам
+      no_cars_found: Нажаль авто з такими параметрами не знайдено
     car:
       id: 'id:'
       make: 'Марка:'
@@ -56,7 +60,17 @@ uk:
       description: 'Опис:'
       created_at: 'Дата створення:'
       back_cars_list: Назад до списку авто
-  search:
+  searches:
+    index:
+      my_searches: Мої пошуки
+      date: Дата
+      make: Виробник
+      model: Модель
+      year_from: Рік з
+      year_to: Рік по
+      price_from: Ціна з
+      price_to: Ціна по
+      search_was_successfully_destroyed: "Історія пошуків була успішно видалена."
     new:
       year_from: 'Рік з:'
       year_to: 'Рік по:'

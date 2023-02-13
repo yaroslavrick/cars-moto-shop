@@ -1,6 +1,6 @@
 <h2><%= t('shared.header.search') %></h2>
 
-<%= form_with url: search_index_path, method: :post, data: { turbo: false }, class: 'cars-form' do |f|  %>
+<%= form_with url: searches_path, method: :post, data: { turbo: false }, class: 'cars-form' do |f|  %>
     <div class="from-group">
         <div class="w-25">
           <%= f.label :make, t('cars.car.make'), class: "form-label" %>
@@ -26,7 +26,7 @@
           <%= f.label :price_to, t('.price_to'), class: "form-label" %>
           <%= f.text_field "filter_params[price_to]", placeholder: t('.price_to').downcase, class: "form-control"   %>
         </div>
-        <%= f.submit t('.submit'), formaction: search_index_path, class: "btn btn-primary mt-2" %>
+        <%= f.submit t('.submit'), formaction: searches_path, class: "btn btn-primary mt-2" %>
     </div>
 <% end %>
 

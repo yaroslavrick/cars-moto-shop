@@ -3,22 +3,18 @@
 <h1><%= t(".cars") %></h1>
 
 <div class="d-flex">
-    <p><%= t(".total_cars_count") %></p>
-    <p class=""><b><%= @cars.count %></b></p>
+  <% if @cars.any? %>
+    <p><%= "#{t(".total_cars_count")}  " %><b><%= @total_cars_count %></b></p>
+  <% else %>
+    <p><%= t('cars.index.no_cars_found') %></p>
+  <% end %>
 </div>
 
-<div class="mb-2">
-  <%= form_with url: cars_path, method: :get, data: { turbo: false }, class: 'cars-form' do |f| %>
-    <% params.fetch(:filter_params, {}).each do |k, v| %>
-        <%= hidden_field_tag "filter_params[#{k}]", v %>
-    <% end %>
-    <%= f.label t('.sort_by') %>
-    <%= f.select :sort_by, ['Created_at desc', 'Created_at asc', 'Price desc', 'Price asc'], selected: params[:sort_by] %>
-    <%= f.submit t('.sort'), class: "btn btn-primary" %>
-<% end %>
-</div>
+<%= render partial: 'cars/sort_form' if @cars.count > 1 %>
+<%= link_to t('cars.index.search_car'), new_search_path, class: "btn btn-primary mt-2 mb-2" if @cars.blank? %>
 
 <%== pagy_bootstrap_nav @pagy if @pagy.pages > 1 %>
+
 <div class="container">
   <div id="cars">
     <div class="row">
@@ -30,6 +26,7 @@
     </div>
   </div>
 </div>
+
 <%= render partial: 'shared/button_back_to_home_page' %>
 
 <div class="container">

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-class SearchController < ApplicationController
+class SearchesController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   def index
     @user_searches = Search.where(user_id: current_user.id)
+    @pagy, @user_searches = pagy @user_searches, items: 10
   end
 
   def new
@@ -13,6 +14,15 @@ class SearchController < ApplicationController
   def create
     @search = Search.create(search_params.merge(user_id: current_user.id)) if current_user
     redirect_to cars_path(filter_params)
+  end
+
+  def destroy
+    # @search = Search.where("id = ?", params[:user_id]).destroy_all
+    @search.destroy
+
+    respond_to do |format|
+      format.html { redirect_to searches_path, notice: I18n.t('searches.index.search_was_successfully_destroyed') }
+    end
   end
 
   private

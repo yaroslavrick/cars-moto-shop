@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class HelpController < ApplicationController
+class HelpsController < ApplicationController
   def index; end
 end
