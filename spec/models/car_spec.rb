@@ -5,8 +5,6 @@ require 'rails_helper'
 RSpec.describe Car do
   let(:car) { build(:car) }
 
-  # subject(described_class.new)
-
   context 'when presence validation' do
     it 'is valid with valid attributes' do
       expect(car).to be_valid
