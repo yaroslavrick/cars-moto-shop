@@ -7,7 +7,7 @@ def create_car
     year: generate_year,
     odometer: FFaker::Random.rand(1..300_000),
     price: FFaker::Random.rand(1000..500_00),
-    description: FFaker::Book.description
+    description: FFaker::Book.description(2)
   )
 end
 

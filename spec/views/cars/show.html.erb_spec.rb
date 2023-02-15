@@ -7,8 +7,8 @@ RSpec.describe 'cars/show' do
     assign(:car, Car.create!(
                    make: 'Make',
                    model: 'Model',
-                   year: 2,
-                   odometer: 3,
+                   year: 2005,
+                   odometer: 170_000,
                    price: '9.99',
                    description: 'Description'
                  ))

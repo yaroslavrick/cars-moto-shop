@@ -5,7 +5,7 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :year, presence: true, numericality: { only_integer: true, greater_than: 1900 }
   validates :odometer, presence: true, numericality: { only_integer: true }
-  validates :price, presence: true, numericality: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, presence: true, length: { in: 6..300,
                                                     too_short: '%<count>s characters is the minimum allowed',
                                                     too_long: '%<count>s characters is the maximum allowed' }
