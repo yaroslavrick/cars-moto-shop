@@ -53,5 +53,7 @@ end
 
 group :test do
   gem 'simplecov', '~> 0.22.0', require: false
+  gem 'simplecov-html', '~> 0.12.3'
+  gem 'simplecov-lcov', '~> 0.8.0'
   # gem 'shoulda-matchers'
 end
