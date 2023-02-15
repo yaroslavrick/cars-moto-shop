@@ -119,4 +119,13 @@ RSpec.describe Car do
       expect(car).to be_valid
     end
   end
+
+  describe 'columns' do
+    it { is_expected.to have_db_column(:make) }
+    it { is_expected.to have_db_column(:model) }
+    it { is_expected.to have_db_column(:year) }
+    it { is_expected.to have_db_column(:odometer) }
+    it { is_expected.to have_db_column(:price) }
+    it { is_expected.to have_db_column(:description) }
+  end
 end

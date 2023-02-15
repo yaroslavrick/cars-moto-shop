@@ -3,5 +3,21 @@
 require 'rails_helper'
 
 RSpec.describe Search do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { build(:user) }
+  let(:search) { build(:search) }
+
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+  end
+
+  describe 'columns' do
+    it { is_expected.to have_db_column(:make) }
+    it { is_expected.to have_db_column(:model) }
+    it { is_expected.to have_db_column(:year_from) }
+    it { is_expected.to have_db_column(:year_to) }
+    it { is_expected.to have_db_column(:price_from) }
+    it { is_expected.to have_db_column(:price_to) }
+    it { is_expected.to have_db_column(:user_id) }
+    it { is_expected.to have_db_index(:user_id) }
+  end
 end
