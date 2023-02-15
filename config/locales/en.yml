@@ -77,6 +77,10 @@ en:
       price_from: 'Price from:'
       price_to: 'Price to:'
       submit: 'Submit'
+  models:
+    car:
+      too_short: "%{count} characters is the minimum allowed"
+      too_long: "%{count} characters is the maximum allowed"
 
 
 

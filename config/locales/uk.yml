@@ -77,3 +77,7 @@ uk:
       price_from: 'Ціна з:'
       price_to: 'Ціна по:'
       submit: 'Прийняти'
+  models:
+    car:
+      too_short: "%{count} символів мінімально допустимо"
+      too_long: "%{count} символів максимально допустимо"
