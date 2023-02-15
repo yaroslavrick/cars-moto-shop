@@ -4,7 +4,7 @@ class Search < ApplicationRecord
   belongs_to :user
 
   validates :make, presence: true,
-                   length: { minimum: 2, too_short: '%<count>s characters is the minimum allowed' },
+                   length: { minimum: 2, too_short: t('models.car.too_short') },
                    allow_blank: true
   validates :model, presence: true, allow_blank: true
   validates :year, presence: true, numericality: { only_integer: true, greater_than: 1900 }, allow_nil: true
