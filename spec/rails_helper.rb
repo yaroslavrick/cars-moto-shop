@@ -12,8 +12,8 @@ SimpleCov.start do
   add_filter(/^\/spec\//) # For RSpec
 end
 
-require 'shields_badge'
-SimpleCov.formatter = SimpleCov::Formatter::ShieldsBadge
+# require 'shields_badge'
+# SimpleCov.formatter = SimpleCov::Formatter::ShieldsBadge
 # SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
