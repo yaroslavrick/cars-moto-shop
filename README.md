@@ -1,4 +1,5 @@
 # Car advertisements web
+[![Coverage](badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
 
 ### Requirements
 
@@ -32,4 +33,3 @@ rails s
 
 Visit the app at http://localhost:3000
 
-[![Coverage](badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
