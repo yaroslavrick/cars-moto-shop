@@ -126,4 +126,24 @@ RSpec.describe Car do
     it { is_expected.to have_db_column(:price) }
     it { is_expected.to have_db_column(:description) }
   end
+
+  describe 'error message' do
+    it 'returns proper error message for make' do
+      car.make = 'A'
+      car.valid?
+      expect(car.errors[:make]).to include('2 characters is the minimum allowed')
+    end
+
+    it 'returns proper error message for description min length' do
+      car.description = 'Abcde'
+      car.valid?
+      expect(car.errors[:description]).to include('6 characters is the minimum allowed')
+    end
+
+    it 'returns proper error message for description max length' do
+      car.description = FFaker::Lorem.characters(301)
+      car.valid?
+      expect(car.errors[:description]).to include('300 characters is the maximum allowed')
+    end
+  end
 end
