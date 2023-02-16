@@ -3,7 +3,7 @@
 
 ### Requirements
 
-- Ruby 3.1.3
+- Ruby 3.1.2
 - Rails 7.0.4
 
 #### 1. Clone the repository
