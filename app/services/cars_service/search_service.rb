@@ -26,8 +26,8 @@ module CarsService
     def search_by_make
       return @data if @params['make'].blank?
 
-      # @data = @data.where(make: @params['make'])
-      @data = @data.filter_by_make(@params['make'])
+      @data = @data.where(make: @params['make'])
+      # @data = @data.filter_by_make(@params['make'])
     end
 
     def search_by_model
