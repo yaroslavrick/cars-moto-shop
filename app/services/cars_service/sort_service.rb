@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CarsService
-  class SortEngine
+  class SortService
     attr_reader :data
 
     def initialize(params:, data:)
@@ -10,7 +10,8 @@ module CarsService
     end
 
     def call
-      @data.filter_sort_by(@params)
+      @data.order(@params)
+      # @data.filter_sort_by(@params)
     end
   end
 end
