@@ -32,6 +32,4 @@ rails s
 
 Visit the app at http://localhost:3000
 
-TODO:
-
-- [ ] My searches page
+[![Coverage](https://yaroslavrick.github.io/car_advertisements_web/badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
