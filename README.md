@@ -32,4 +32,4 @@ rails s
 
 Visit the app at http://localhost:3000
 
-[![Coverage](https://yaroslavrick.github.io/car_advertisements_web/badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
+[![Coverage](badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
