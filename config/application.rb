@@ -40,7 +40,7 @@ module CarAdvertisementsWeb
     config.generators.system_tests = nil
 
     #   For RSpec:
-    # config.test_framework = :rspec
-    # config.generators.test_framework = :rpsec
+    config.test_framework = :rspec
+    config.generators.test_framework = :rpsec
   end
 end

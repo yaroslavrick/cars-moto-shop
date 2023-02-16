@@ -5,7 +5,7 @@
       <%= hidden_field_tag "filter_params[#{k}]", v %>
     <% end %>
     <%= f.label t('cars.index.sort_by') %>
-    <%= f.select :sort_by, ['Created_at desc', 'Created_at asc', 'Price desc', 'Price asc'], selected: params[:sort_by] %>
+    <%= f.select(:sort_by, ['Created_at desc', 'Created_at asc', 'Price desc', 'Price asc'], { selected: params[:sort_by]} , { class: 'form-select w-25' }) %>
     <%= f.submit t('cars.index.sort'), class: "btn btn-primary" %>
   <% end %>
 </div>
