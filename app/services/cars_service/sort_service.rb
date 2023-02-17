@@ -10,8 +10,7 @@ module CarsService
     end
 
     def call
-      @data.order(@params)
-      # @data.filter_sort_by(@params)
+      @data.filter_sort_by(@params)
     end
   end
 end
