@@ -26,8 +26,8 @@ module CarsService
     def search_by_make
       return @data if @params['make'].blank?
 
-      @data = @data.where(make: @params['make'])
-      # @data = @data.filter_by_make(@params['make'])
+      # @data = @data.where(make: @params['make'])
+      @data = @data.filter_by_make(@params['make'])
     end
 
     def search_by_model
@@ -61,8 +61,8 @@ module CarsService
     def search_by_price_to
       return @data if @params['price_to'].blank?
 
-      @data = @data.where('price <= ?', @params['price_to'].to_i)
-      # @data = @data.filter_by_price_to(@params['price_to'].to_i) if @params['year_to'].present?
+      # @data = @data.where('price <= ?', @params['price_to'].to_i)
+      @data = @data.filter_by_price_to(@params['price_to'].to_i) if @params['year_to'].present?
     end
   end
 end
