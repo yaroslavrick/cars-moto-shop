@@ -50,6 +50,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard-rspec', '~> 4.7.3', require: false
   gem 'web-console', '~> 4.2.0'
 end
 
