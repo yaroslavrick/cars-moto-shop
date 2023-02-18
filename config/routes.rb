@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  get 'login/index'
+
+  resources :cars, only: %i[index show]
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     root 'homes#index'
     resources :cars, only: %i[index show]

@@ -74,9 +74,9 @@ RSpec.describe 'cars/index' do
   end
 
   context 'when there are more than 1 car' do
-    let(:car1) { create(:car, :zaz_sens) }
-    let(:car2) { create(:car, :opel_kadett) }
-    let(:car3) { create(:car, :nissan_leaf) }
+    let!(:car1) { create(:car, :zaz_sens) }
+    let!(:car2) { create(:car, :opel_kadett) }
+    let!(:car3) { create(:car, :nissan_leaf) }
 
     before do
       assign(:cars, [car1, car2, car3])
@@ -85,6 +85,14 @@ RSpec.describe 'cars/index' do
 
     it 'includes a sorting form' do
       expect(rendered).to include('sort_form')
+    end
+
+    it 'displays a count of cars' do
+      expect(rendered).to include(I18n.t('cars.index.total_cars_count').to_s)
+    end
+
+    it 'displays the car cards' do
+      expect(rendered).to include("car_#{car1.id}")
     end
   end
 end
