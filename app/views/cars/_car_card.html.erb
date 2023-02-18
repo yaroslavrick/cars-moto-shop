@@ -21,6 +21,6 @@
 
   </div>
   <div class="card-footer text-muted mx-auto">
-    <%= link_to t("cars.index.show_this_car"), car, class: "btn btn-primary align-self-end btn-block", style: "margin-top: auto;" %>
+    <%= link_to t("cars.index.show_this_car"), car.try(:id) ? car : '#', class: "btn btn-primary align-self-end btn-block", style: "margin-top: auto;" %>
   </div>
 </div>
