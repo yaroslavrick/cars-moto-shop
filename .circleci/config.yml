@@ -54,7 +54,7 @@ jobs:
     steps:
       - defaults
       - run_rubocop
-#      - run_fasterer
+      - run_fasterer
 
 #  specs:
 #    executor: default
