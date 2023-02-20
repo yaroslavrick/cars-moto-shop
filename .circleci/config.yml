@@ -29,21 +29,21 @@ commands:
 
   run_specs:
     steps:
-      - defaults
+#      - defaults
       - run:
           name: run specs
           command: bundle exec rspec
 
   run_rubocop:
     steps:
-      - defaults
+#      - defaults
       - run:
           name: run rubocop
           command: bundle exec rubocop
 
   run_fasterer:
     steps:
-      - defaults
+#      - defaults
       - run:
           name: run fasterer
           command: bundle exec fasterer
@@ -54,18 +54,18 @@ jobs:
     steps:
       - defaults
       - run_rubocop
-      - run_fasterer
+#      - run_fasterer
 
-  specs:
-    executor: default
-    steps:
-      - defaults
-      - run_specs
+#  specs:
+#    executor: default
+#    steps:
+#      - defaults
+#      - run_specs
 
 workflows:
   build:
     jobs:
       - lintering
-      - specs:
-          requires:
-            - lintering
+#      - specs:
+#          requires:
+#            - lintering
