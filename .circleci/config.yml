@@ -7,8 +7,8 @@ executors:
     docker:
       - image: cimg/ruby:3.1.2
         environment:
-          NODE_VERSION: "16.14.0"
-      - image: circleci/node:16.14.0-buster
+          NODE_VERSION: "14.15"
+      - image: circleci/node:14.15
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
