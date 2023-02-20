@@ -21,12 +21,6 @@ caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
 
-environment:
-  DB_USERNAME: postgres
-  DB_PASSWORD: postgres
-  DB_NAME: postgres
-  DB_HOST: 127.0.0.1
-
 commands:
   setup_environment:
     steps:
