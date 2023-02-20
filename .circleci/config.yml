@@ -34,8 +34,8 @@ commands:
           command: bundle install
       - save_cache:
           key: *bundle_cache_full
-#          paths:
-#            - vendor/bundle
+          paths:
+            - vendor/bundle
       - run:
           name: Set up DB
           command: |
