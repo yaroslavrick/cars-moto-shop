@@ -6,18 +6,23 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: cimg/ruby:3.1.2-node
-#      - image: circleci/postgres:11.3-alpine
+        environment:
+          RAILS_ENV: test
+      - image: circleci/postgres:11.3-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
 
-environment:
-  DB_USERNAME: postgres
-  DB_PASSWORD: postgres
+#environment:
+#  DB_USERNAME:
+#  DB_PASSWORD:
 
 commands:
-  defaults:
+  setup_environment:
     steps:
       - checkout
       - restore_cache:
@@ -29,14 +34,29 @@ commands:
           command: bundle install
       - save_cache:
           key: *bundle_cache_full
-          paths:
-            - vendor/bundle
+#          paths:
+#            - vendor/bundle
+      - run:
+          name: Set up DB
+          command: |
+            bundle exec rails db:setup
+#            bundle exec rake db:create
+#            bundle exec rails db:schema:load
 
   run_specs:
     steps:
       - run:
           name: run specs
-          command: bundle exec rspec
+#          command: bundle exec rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            bundle exec rspec --format progress \
+                              --out /tmp/test-results/rspec.xml \
+                              $TEST_FILES
+      - store_artifacts:
+         path: ~/repo/coverage
+         destination: coverage
 
   run_rubocop:
     steps:
@@ -50,59 +70,76 @@ commands:
           name: run fasterer
           command: bundle exec fasterer
 
+  run_bundle_audit:
+    steps:
+      - run:
+          name: run bundle audit
+          command: bundle exec bundler-audit check --update
+
+  run_rails_best_practices:
+    steps:
+      - run:
+          name: run rails_best_practices
+          command: bundle exec rails_best_practices .
 jobs:
   lintering:
     executor: default
     steps:
-      - defaults
+      - setup_environment
       - run_rubocop
       - run_fasterer
+      - run_bundle_audit
+      - run_rails_best_practices
 
   specs:
     executor: default
+    parallelism: 2
     steps:
-      - defaults
+      - setup_environment
       - run_specs
 
-  database_setup:
-    executor: default
-    steps:
-      - checkout
-      - run:
-          name: Install PostgreSQL
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y postgresql-client
-      - run:
-          name: Create test database
-          command: |
-            cp config/database.yml.ci config/database.yml
-            export RAILS_ENV=test
-            bundle exec rake db:create db:schema:load
-
-  database_teardown:
-    executor: default
-    steps:
-      - run:
-          name: Drop test database
-          command: |
-            export RAILS_ENV=test
-            bundle exec rake db:drop
+#  database_setup:
+#    executor: default
+#    steps:
+#      - checkout
+#      - run:
+#          name: Install PostgreSQL
+#          command: |
+#            sudo apt-get update
+#            sudo apt-get install -y postgresql-client
+#      - run:
+#          name: Create test database
+#          command: |
+#            cp config/database.yml.ci config/database.yml
+#            export RAILS_ENV=test
+#            bundle exec rake db:create db:schema:load
+#
+#  database_teardown:
+#    executor: default
+#    steps:
+#      - run:
+#          name: Drop test database
+#          command: |
+#            export RAILS_ENV=test
+#            bundle exec rake db:drop
 
 workflows:
+  version: 2.1
   build:
     jobs:
       - lintering
-#      - specs
-      - database_setup:
-          requires:
-            - lintering
       - specs:
           requires:
-            - database_setup
-          filters:
-            branches:
-              only: master
-      - database_teardown:
-          requires:
-            - specs
+            - lintering
+#      - database_setup:
+#          requires:
+#            - lintering
+#      - specs:
+#          requires:
+#            - database_setup
+#          filters:
+#            branches:
+#              only: master
+#      - database_teardown:
+#          requires:
+#            - specs
