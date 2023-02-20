@@ -32,7 +32,7 @@ commands:
       - defaults
       - run:
           name: run specs
-          command: bundle exec rspec -fd
+          command: bundle exec rspec
 
   run_rubocop:
     steps:
