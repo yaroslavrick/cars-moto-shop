@@ -5,8 +5,13 @@ executors:
     working_directory: ~/repo
     description: The official CircleCI Ruby Docker image
     docker:
-      - image: cimg/ruby:3.1.2-node
-#      - image: circleci/postgres:11.3-alpine
+      - image: cimg/ruby:3.1.2-node-browsers
+        environment:
+          RAILS_ENV: test
+      - image: circleci/postgres:11.3-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -39,8 +44,8 @@ commands:
 #          command: bundle exec rspec
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            bundle exec rspec --format documentation \
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            bundle exec rspec --format progress \
                               --out /tmp/test-results/rspec.xml \
                               $TEST_FILES
       - store_artifacts:
@@ -65,6 +70,11 @@ commands:
           name: run bundle audit
           command: bundle exec bundler-audit check --update
 
+  run_rails_best_practices:
+    steps:
+      - run:
+          name: run rails_best_practices
+          command: bundle exec rails_best_practices .
 jobs:
   lintering:
     executor: default
@@ -73,9 +83,11 @@ jobs:
       - run_rubocop
       - run_fasterer
       - run_bundle_audit
+      - run_rails_best_practices
 
   specs:
     executor: default
+    parallelism: 2
     steps:
       - defaults
       - run_specs
