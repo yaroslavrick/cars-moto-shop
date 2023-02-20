@@ -6,6 +6,9 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: cimg/ruby:3.1.2
+        environment:
+          NODE_VERSION: "16.14.0"
+      - image: circleci/node:16.14.0-buster
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
