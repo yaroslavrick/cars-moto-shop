@@ -39,7 +39,8 @@ commands:
 #          command: bundle exec rspec
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+#            TEST_FILES="(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            TEST_FILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
             bundle exec rspec --format documentation \
                               --out /tmp/test-results/rspec.xml \
                               $TEST_FILES
@@ -77,30 +78,30 @@ jobs:
       - defaults
       - run_specs
 
-  database_setup:
-    executor: default
-    steps:
-      - checkout
-      - run:
-          name: Install PostgreSQL
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y postgresql-client
-      - run:
-          name: Create test database
-          command: |
-            cp config/database.yml.ci config/database.yml
-            export RAILS_ENV=test
-            bundle exec rake db:create db:schema:load
-
-  database_teardown:
-    executor: default
-    steps:
-      - run:
-          name: Drop test database
-          command: |
-            export RAILS_ENV=test
-            bundle exec rake db:drop
+#  database_setup:
+#    executor: default
+#    steps:
+#      - checkout
+#      - run:
+#          name: Install PostgreSQL
+#          command: |
+#            sudo apt-get update
+#            sudo apt-get install -y postgresql-client
+#      - run:
+#          name: Create test database
+#          command: |
+#            cp config/database.yml.ci config/database.yml
+#            export RAILS_ENV=test
+#            bundle exec rake db:create db:schema:load
+#
+#  database_teardown:
+#    executor: default
+#    steps:
+#      - run:
+#          name: Drop test database
+#          command: |
+#            export RAILS_ENV=test
+#            bundle exec rake db:drop
 
 workflows:
   build:
