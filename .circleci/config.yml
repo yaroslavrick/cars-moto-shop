@@ -39,11 +39,13 @@ commands:
 #          command: bundle exec rspec
           command: |
             mkdir /tmp/test-results
-#            TEST_FILES="(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            TEST_FILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+            TEST_FILES="(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             bundle exec rspec --format documentation \
                               --out /tmp/test-results/rspec.xml \
                               $TEST_FILES
+      - store_artifacts:
+         path: ~/repo/coverage
+         destination: coverage
 
   run_rubocop:
     steps:
@@ -104,10 +106,13 @@ jobs:
 #            bundle exec rake db:drop
 
 workflows:
+  version: 2.1
   build:
     jobs:
       - lintering
-      - specs
+      - specs:
+          requires:
+            - lintering
 #      - database_setup:
 #          requires:
 #            - lintering
