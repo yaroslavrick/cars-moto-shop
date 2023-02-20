@@ -12,9 +12,9 @@ caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
 
-environment:
-  DB_USERNAME: postgres
-  DB_PASSWORD: postgres
+#environment:
+#  DB_USERNAME:
+#  DB_PASSWORD:
 
 commands:
   defaults:
@@ -36,7 +36,13 @@ commands:
     steps:
       - run:
           name: run specs
-          command: bundle exec rspec
+#          command: bundle exec rspec
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            bundle exec rspec --format documentation \
+                              --out /tmp/test-results/rspec.xml \
+                              $TEST_FILES
 
   run_rubocop:
     steps:
@@ -50,6 +56,12 @@ commands:
           name: run fasterer
           command: bundle exec fasterer
 
+  run_bundle_audit:
+    steps:
+      - run:
+          name: run bundle audit
+          command: bundle exec bundler-audit check --update
+
 jobs:
   lintering:
     executor: default
@@ -57,6 +69,7 @@ jobs:
       - defaults
       - run_rubocop
       - run_fasterer
+      - run_bundle_audit
 
   specs:
     executor: default
@@ -93,16 +106,16 @@ workflows:
   build:
     jobs:
       - lintering
-#      - specs
-      - database_setup:
-          requires:
-            - lintering
-      - specs:
-          requires:
-            - database_setup
-          filters:
-            branches:
-              only: master
-      - database_teardown:
-          requires:
-            - specs
+      - specs
+#      - database_setup:
+#          requires:
+#            - lintering
+#      - specs:
+#          requires:
+#            - database_setup
+#          filters:
+#            branches:
+#              only: master
+#      - database_teardown:
+#          requires:
+#            - specs
