@@ -26,11 +26,6 @@ environment:
   DB_PASSWORD: postgres
   DB_NAME: postgres
   DB_HOST: 127.0.0.1
-  PG_USER: myapp
-  PG_PASSWORD: myapp
-  PG_DB: car_advertisements_web_test
-  PG_HOST: localhost
-  PG_PORT: 5432
 
 commands:
   setup_environment:
@@ -68,8 +63,8 @@ commands:
                               --out /tmp/test-results/rspec.xml \
                               $TEST_FILES
       - store_artifacts:
-         path: ~/repo/coverage
-         destination: coverage
+          path: ~/repo/coverage
+          destination: coverage
 
   run_rubocop:
     steps:
@@ -98,12 +93,7 @@ jobs:
   lintering:
     executor: default
     steps:
-      - setup_environment:
-          environment:
-            PGUSER: $PG_USER
-            PGPASSWORD: $PG_PASSWORD
-            PGDATABASE: $PG_DB
-            PGHOST: $PG_HOST
+      - setup_environment
       - run_rubocop
       - run_fasterer
       - run_bundle_audit
@@ -113,12 +103,7 @@ jobs:
     executor: default
     parallelism: 2
     steps:
-      - setup_environment:
-          environment:
-            PGUSER: $PG_USER
-            PGPASSWORD: $PG_PASSWORD
-            PGDATABASE: $PG_DB
-            PGHOST: $PG_HOST
+      - setup_environment
       - run_specs
 
 workflows:
