@@ -20,6 +20,8 @@ caches:
 environment:
   DB_USERNAME: postgres
   DB_PASSWORD: postgres
+  DB_NAME: postgres
+  DB_HOST: 127.0.0.1
 
 commands:
   setup_environment:
@@ -42,9 +44,10 @@ commands:
       - run:
           name: Set up DB
           command: |
-            bundle exec rails db:setup
-#            bundle exec rake db:create
-#            bundle exec rails db:schema:load
+            bundle exec rails db:create
+            bundle exec rails db:schema:load
+            bundle exec rails db:migrate
+
 
   run_specs:
     steps:
