@@ -11,7 +11,7 @@ executors:
           PGHOST: localhost
           PGUSER: myapp
           PGPORT: 5432
-          DATABASE_URL: postgresql://$DB_USERNAME:$DB_PASSWORD@$DB_HOST:$PGPORT/$DB_NAME
+          DATABASE_URL: postgresql://myapp@localhost:5432/car_advertisements_web_test
       - image: circleci/postgres:11.3-alpine
         environment:
           POSTGRES_USER: $DB_USERNAME
