@@ -10,8 +10,8 @@ executors:
           RAILS_ENV: test
       - image: circleci/postgres:11.3-alpine
         environment:
-          DB_USERNAME: postgres
-          DB_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
