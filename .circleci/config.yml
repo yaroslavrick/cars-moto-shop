@@ -6,7 +6,7 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: cimg/ruby:3.1.2-node
-      - image: circleci/postgres:11.3-alpine
+#      - image: circleci/postgres:11.3-alpine
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -64,9 +64,45 @@ jobs:
       - defaults
       - run_specs
 
+  database_setup:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Install PostgreSQL
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client
+      - run:
+          name: Create test database
+          command: |
+            cp config/database.yml.ci config/database.yml
+            export RAILS_ENV=test
+            bundle exec rake db:create db:schema:load
+
+  database_teardown:
+    executor: default
+    steps:
+      - run:
+          name: Drop test database
+          command: |
+            export RAILS_ENV=test
+            bundle exec rake db:drop
+
 workflows:
   build:
     jobs:
       - lintering
-      - specs
-
+#      - specs
+      - database_setup:
+          requires:
+            - lintering
+      - specs:
+          requires:
+            - database_setup
+          filters:
+            branches:
+              only: master
+      - database_teardown:
+          requires:
+            - specs
