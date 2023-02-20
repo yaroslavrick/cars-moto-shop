@@ -8,14 +8,12 @@ executors:
       - image: cimg/ruby:3.1.2-node
         environment:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
-          PGPORT: 5432
-          DATABASE_URL: postgresql://myapp@localhost:5432/car_advertisements_web_test
+          DATABASE_URL: postgresql://$PG_USER:$PG_PASSWORD@$PG_HOST:$PG_PORT/$PG_DB
       - image: circleci/postgres:11.3-alpine
         environment:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: car_advertisements_web_test
+          POSTGRES_USER: $PG_USER
+          POSTGRES_DB: $PG_DB
+          POSTGRES_PASSWORD: $PG_PASSWORD
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -26,6 +24,11 @@ environment:
   DB_PASSWORD: postgres
   DB_NAME: postgres
   DB_HOST: 127.0.0.1
+  PG_USER: myapp
+  PG_PASSWORD: myapp
+  PG_DB: car_advertisements_web_test
+  PG_HOST: localhost
+  PG_PORT: 5432
 
 commands:
   setup_environment:
@@ -93,7 +96,12 @@ jobs:
   lintering:
     executor: default
     steps:
-      - setup_environment
+      - setup_environment:
+          environment:
+            PGUSER: $PG_USER
+            PGPASSWORD: $PG_PASSWORD
+            PGDATABASE: $PG_DB
+            PGHOST: $PG_HOST
       - run_rubocop
       - run_fasterer
       - run_bundle_audit
@@ -103,7 +111,12 @@ jobs:
     executor: default
     parallelism: 2
     steps:
-      - setup_environment
+      - setup_environment:
+          environment:
+            PGUSER: $PG_USER
+            PGPASSWORD: $PG_PASSWORD
+            PGDATABASE: $PG_DB
+            PGHOST: $PG_HOST
       - run_specs
 
 workflows:
