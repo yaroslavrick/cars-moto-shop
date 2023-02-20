@@ -13,19 +13,25 @@ git@github.com:yaroslavrick/car_advertisements_web.git
 cd car_advertisements_web
 ```
 
-#### 2. Install dependencies
+#### 2. Copy the .env.example file.
+
+```zsh
+cp .env.example .env
+```
+
+#### 3. Install dependencies
 
 ```zsh
 bundle
 ```
 
-#### 3. Create and setup the database
+#### 4. Create and setup the database
 
 ```zsh
 rails db:create && rails db:migrate && rails db:seed
 ```
 
-#### 4. Start the app
+#### 5. Start the app
 
 ```zsh
 rails s
