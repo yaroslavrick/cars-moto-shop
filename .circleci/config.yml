@@ -20,29 +20,52 @@ commands:
             - *bundle_cache_full
             - *bundle_cache
       - run:
-          name: install required gems 2
+          name: install required gems
           command: bundle install
       - save_cache:
           key: *bundle_cache_full
           paths:
             - vendor/bundle
 
+  run_specs:
+    steps:
+      - defaults
+      - run:
+          name: run specs
+          command: bundle exec rspec -fd
+
+  run_rubocop:
+    steps:
+      - defaults
+      - run:
+          name: run rubocop
+          command: bundle exec rubocop
+
+  run_fasterer:
+    steps:
+      - defaults
+      - run:
+          name: run fasterer
+          command: bundle exec fasterer
+
 jobs:
   lintering:
     executor: default
     steps:
       - defaults
-#      - run_linters
-#    run_specs:
-#      executor: default
-#      steps:
-#        - defaults
-#        - run_specs
+      - run_rubocop
+      - run_fasterer
+
+  specs:
+    executor: default
+    steps:
+      - defaults
+      - run_specs
 
 workflows:
   build:
     jobs:
       - lintering
-#      - run_specs:
-#          requires:
-#            - lintering
+      - run_specs:
+          requires:
+            - lintering
