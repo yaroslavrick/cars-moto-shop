@@ -6,8 +6,8 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:3.1.2
-        environment:
-          RAILS_ENV: test
+#        environment:
+#          RAILS_ENV: test
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
@@ -20,7 +20,9 @@ commands:
           keys:
             - *bundle_cache_full
             - *bundle_cache
-      - run: bundle install --path vendor/bundle
+      - run:
+          name: install required gems
+          command: bundle install --path vendor/bundle
       - save_cache:
           key: *bundle_cache_full
           path:
