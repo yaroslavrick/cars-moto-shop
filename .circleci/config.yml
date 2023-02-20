@@ -22,7 +22,7 @@ caches:
 #  DB_PASSWORD:
 
 commands:
-  defaults:
+  setup_environment:
     steps:
       - checkout
       - restore_cache:
@@ -39,8 +39,9 @@ commands:
       - run:
           name: Set up DB
           command: |
-            bundle exec rake db:create
-            bundle exec rails db:schema:load
+            bundle exec rails db:setup
+#            bundle exec rake db:create
+#            bundle exec rails db:schema:load
 
   run_specs:
     steps:
@@ -84,7 +85,7 @@ jobs:
   lintering:
     executor: default
     steps:
-      - defaults
+      - setup_environment
       - run_rubocop
       - run_fasterer
       - run_bundle_audit
@@ -94,7 +95,7 @@ jobs:
     executor: default
     parallelism: 2
     steps:
-      - defaults
+      - setup_environment
       - run_specs
 
 #  database_setup:
