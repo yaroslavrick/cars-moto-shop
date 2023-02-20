@@ -8,10 +8,14 @@ executors:
       - image: cimg/ruby:3.1.2-node
         environment:
           RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: myapp
+          PGPORT: 5432
+          DATABASE_URL: postgresql://myapp@localhost:5432/car_advertisements_web_test
       - image: circleci/postgres:11.3-alpine
         environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: myapp
+          POSTGRES_DB: car_advertisements_web_test
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -32,11 +36,8 @@ commands:
             - *bundle_cache_full
             - *bundle_cache
       - run:
-          name: load cache
-          command: bundle config set --local path 'vendor/bundle'
-      - run:
           name: install required gems
-          command: bundle install
+          command: bundle install --path vendor/bundle
       - save_cache:
           key: *bundle_cache_full
           paths:
