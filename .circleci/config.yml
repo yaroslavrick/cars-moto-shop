@@ -6,8 +6,7 @@ executors:
     description: The official CircleCI Ruby Docker image
     docker:
       - image: circleci/ruby:3.1.2
-#        environment:
-#          RAILS_ENV: test
+
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
@@ -25,22 +24,8 @@ commands:
           command: bundle install --path vendor/bundle
       - save_cache:
           key: *bundle_cache_full
-          path:
+          paths:
             - vendor/bundle
-#  run_linters:
-#    description: command to start linters
-#    steps:
-#      - run:
-#          name: fasterer
-#          command: echo 'working on..'
-#
-#  run_specs:
-#    steps:
-#      - run: run specs
-#        command: |
-#          mkdir /tml/test-results
-#          TEST_FILES="$(circleci test glob "spec/**/*_spec.rb" | cercleci tests split --split-by=timings"
-#          bundle exec rspec -fd -- out /tmp/test-results/rspec.xml $TEST_FILES
 
 jobs:
   lintering:
@@ -54,12 +39,10 @@ jobs:
 #        - defaults
 #        - run_specs
 
-  workflows:
-    version: 2.1
-    build:
-      jobs:
-        - lintering
-#        - run_specs:
-#            requires:
-#              - lintering
-
+workflows:
+  build:
+    jobs:
+      - lintering
+#      - run_specs:
+#          requires:
+#            - lintering
