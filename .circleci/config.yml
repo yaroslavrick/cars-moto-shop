@@ -44,8 +44,7 @@ commands:
       - run:
           name: Set up DB
           command: |
-            bin/rails db:create
-            bundle exec rails db:create
+            bundle exec bin/rails db:create
             bundle exec rails db:schema:load
             bundle exec rails db:migrate
 
