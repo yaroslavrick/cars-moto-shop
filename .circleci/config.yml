@@ -21,7 +21,7 @@ commands:
             - *bundle_cache
       - run:
           name: install required gems
-          command: bundle install --path vendor/bundle
+          command: bundle config set --local path 'vendor/bundle'
       - save_cache:
           key: *bundle_cache_full
           paths:
