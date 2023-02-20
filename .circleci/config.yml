@@ -17,9 +17,9 @@ caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
   - &bundle_cache v2-repo-
 
-#environment:
-#  DB_USERNAME:
-#  DB_PASSWORD:
+environment:
+  DB_USERNAME: postgres
+  DB_PASSWORD: postgres
 
 commands:
   setup_environment:
