@@ -8,13 +8,14 @@ executors:
       - image: cimg/ruby:3.1.2-node
         environment:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGPORT: 5432
-          DATABASE_URL: postgresql://$PGUSER@localhost:$PGPORT/car_advertisements_web_test
       - image: circleci/postgres:11.3-alpine
         environment:
           POSTGRES_USER: myapp
           POSTGRES_DB: car_advertisements_web_test
+          PGHOST: localhost
+          PGUSER: myapp
+          PGPORT: 5432
+          DATABASE_URL: postgres://myapp@localhost:5432/car_advertisements_web_test
 
 caches:
   - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
@@ -43,6 +44,7 @@ commands:
             bundle exec rails db:create
             bundle exec rails db:schema:load
             bundle exec rails db:migrate
+
 
   run_specs:
     steps:
@@ -86,9 +88,7 @@ jobs:
   lintering:
     executor: default
     steps:
-      - setup_environment:
-          environment:
-            PGUSER: $PG_USER
+      - setup_environment
       - run_rubocop
       - run_fasterer
       - run_bundle_audit
@@ -98,9 +98,7 @@ jobs:
     executor: default
     parallelism: 2
     steps:
-      - setup_environment:
-          environment:
-            PGUSER: $PG_USER
+      - setup_environment
       - run_specs
 
 workflows:
