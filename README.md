@@ -37,5 +37,6 @@ rails db:create && rails db:migrate && rails db:seed
 rails s
 ```
 
-Visit the app at http://localhost:3000
+Visit the app at localhost: http://localhost:3000
 
+Visit the app at web: https://caradvertisementsweb-production.up.railway.app/
