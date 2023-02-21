@@ -45,7 +45,7 @@ RSpec.describe 'cars/index' do
     end
 
     it 'displays a count of cars' do
-      expect(rendered).to include("#{I18n.t('cars.index.total_cars_count')}  <b>1</b>")
+      expect(rendered).to include("#{I18n.t('cars.index.total_cars_count')}  \n<b>1</b>")
     end
 
     it 'displays the car cards' do
