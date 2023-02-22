@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
+
 gem 'bootsnap', '~> 1.16', require: false
 gem 'bootstrap', '~> 5.2.3'
 gem 'devise', '~> 4.8'
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'debug', '~> 1.7.1', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'fasterer', '~> 0.10.0'
-  # Adds step-by-step debugging and stack navigation capabilities to pry using byebug. break step next finish continue
   gem 'pry-byebug', '~> 3.10.1'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rails_best_practices', '~> 1.23.2'
