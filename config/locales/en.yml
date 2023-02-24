@@ -50,6 +50,11 @@ en:
       show_this_car: Show this car
       search_car: Search car with other params
       no_cars_found: No cars found by your search parameters
+    sort_options:
+      created_at_desc: Created at (newest first)
+      created_at_asc: Created at (oldest first)
+      price_asc: Price (lowest first)
+      price_desc: Price (highest first)
     car:
       id: 'id:'
       make: 'Make:'
