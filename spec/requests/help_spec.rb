@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Helps' do
+RSpec.describe 'Help' do
   describe 'GET /index' do
     it 'returns http success' do
-      get '/helps'
+      get '/help'
       expect(response).to have_http_status(:success)
     end
   end

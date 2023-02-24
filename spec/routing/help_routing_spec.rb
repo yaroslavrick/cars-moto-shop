@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe HelpsController do
+RSpec.describe HelpController do
   describe 'routing' do
     it 'routes to #index' do
-      expect(get: '/helps').to route_to('helps#index')
+      expect(get: '/help').to route_to('help#index')
     end
   end
 end

@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Homes' do
+RSpec.describe 'Home' do
   describe 'GET /index' do
     it 'returns http success' do
-      get '/homes'
+      get '/home'
       expect(response).to have_http_status(:success)
     end
   end
