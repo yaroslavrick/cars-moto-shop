@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'homes/index.html.haml' do
+RSpec.describe 'home/index.html.haml' do
   before { render }
 
   it 'renders "button_back_to_home_page" button' do

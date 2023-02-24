@@ -30,13 +30,13 @@ en:
       logout: Log out
     button_back_to_home_page:
       back_to_home_page: Back to home page
-  homes:
+  home:
     index:
       help: Help
       cars_list: Cars list
       search: Search
       welcome_to: "Welcome to %{site_name}!"
-  helps:
+  help:
     index:
       help_menu: You are in a help menu.
       recommendation: If you don not know what to do, just drink good hot coffee and take a rest.
