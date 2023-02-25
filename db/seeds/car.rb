@@ -13,8 +13,7 @@ MAKES_TO_MODELS = {
   'Nissan' => %w[Altima Maxima Sentra Rogue Pathfinder Titan Leaf],
   'Opel' => %w[Kadett Astra Corsa Zafira Vivaro Ampera-e],
   'Subaru' => %w[Impreza Legacy Outback Forester Crosstrek Ascent],
-  'Toyota' => %w[Corolla Camry Rav4 Highlander Tacoma Tundra],
-  'Zaz' => %w[Lanos Sens Forza]
+  'Toyota' => %w[Corolla Camry Rav4 Highlander Tacoma Tundra]
 }.freeze
 
 def create_car
