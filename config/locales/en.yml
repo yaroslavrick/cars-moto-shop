@@ -65,6 +65,11 @@ en:
       description: 'Description:'
       created_at: 'Date added:'
       back_cars_list: Back to cars list
+    car_card:
+      year: 'Year:'
+      odometer: 'Odometer:'
+      price: 'Price:'
+      show_this_car: Show this car
   searches:
     index:
       my_searches: My searches

@@ -65,6 +65,11 @@ uk:
       description: 'Опис:'
       created_at: 'Дата створення:'
       back_cars_list: Назад до списку авто
+    car_card:
+      year: 'Рік:'
+      odometer: 'Пробіг:'
+      price: 'Ціна:'
+      show_this_car: Показати це авто
   searches:
     index:
       my_searches: Мої пошуки
