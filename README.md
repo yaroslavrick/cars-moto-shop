@@ -1,6 +1,8 @@
 # Car advertisements web
 [![Coverage](badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
 
+<img src="https://codecov.io/gh/yaroslavrick/car_advertisements_web/branch/development/graph/badge.svg" alt="codecov"/>
+
 ### Requirements
 
 - Ruby 3.1.2
