@@ -14,7 +14,6 @@ RSpec.describe SearchesController do
       end
 
       it 'return 200:OK' do
-        get :index
         expect(response).to have_http_status(:success)
       end
     end
