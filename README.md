@@ -1,7 +1,7 @@
 # Car advertisements web
 [![Coverage](badge.svg)](https://github.com/yaroslavrick/car_advertisements_web)
 
-<img src="https://codecov.io/gh/yaroslavrick/car_advertisements_web/branch/development/graph/badge.svg" alt="codecov"/>
+[![codecov](https://codecov.io/github/codecov/example-ruby/branch/main/graph/badge.svg?token=478c35d8-0844-42ac-b478-d1fea7a21a58)](https://app.codecov.io/github/yaroslavrick/car_advertisements_web)
 
 ### Requirements
 
