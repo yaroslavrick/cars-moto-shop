@@ -50,11 +50,6 @@ uk:
       show_this_car: Показати це авто
       search_car: Шукати авто по іншим параметрам
       no_cars_found: Нажаль авто з такими параметрами не знайдено
-    sort_options:
-      created_at_desc: По часу створення (спершу новіші)
-      created_at_asc: По часу створення (спершу старіші)
-      price_asc: Ціна (спочатку найдешевші)
-      price_desc: Ціна (спочатку найдорожчі)
     car:
       id: 'id:'
       make: 'Марка:'
@@ -70,6 +65,14 @@ uk:
       odometer: 'Пробіг:'
       price: 'Ціна:'
       show_this_car: Показати це авто
+    sort_form:
+      sort_by: 'Сортувати по:'
+      sort: Відсортувати
+      sort_options:
+        created_at_desc: По часу створення (спершу новіші)
+        created_at_asc: По часу створення (спершу старіші)
+        price_asc: Ціна (спочатку найдешевші)
+        price_desc: Ціна (спочатку найдорожчі)
   searches:
     index:
       my_searches: Мої пошуки
