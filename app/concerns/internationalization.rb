@@ -15,10 +15,7 @@ module Internationalization
 
     def locale_from_url
       locale = params[:locale]
-
-      return locale if I18n.available_locales.map(&:to_s).include?(locale)
-
-      nil
+      locale if I18n.available_locales.map(&:to_s).include?(locale)
     end
 
     def default_url_options
