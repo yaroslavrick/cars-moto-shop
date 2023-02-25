@@ -2,6 +2,7 @@
 
 class SearchesController < ApplicationController
   before_action :authenticate_user!, only: [:index]
+
   def index
     @user_searches = Search.where(user_id: current_user.id)
     @pagy, @user_searches = pagy @user_searches, items: 10
