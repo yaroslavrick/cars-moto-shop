@@ -18,8 +18,10 @@ MAKES_TO_MODELS = {
 }.freeze
 
 def create_car
-  make = FFaker::Vehicle.make
-  return create_car if MAKES_TO_MODELS[make].blank?
+  loop do
+    make = FFaker::Vehicle.make
+    break if MAKES_TO_MODELS[make].blank?
+  end
 
   model = MAKES_TO_MODELS[make].sample
 
