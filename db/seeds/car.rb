@@ -18,9 +18,10 @@ MAKES_TO_MODELS = {
 }.freeze
 
 def create_car
+  make = nil
   loop do
     make = FFaker::Vehicle.make
-    break if MAKES_TO_MODELS[make].blank?
+    break if MAKES_TO_MODELS[make].present?
   end
 
   model = MAKES_TO_MODELS[make].sample
