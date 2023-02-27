@@ -6,8 +6,7 @@ SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 # SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::LcovFormatter,
-  SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::ShieldsBadge
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start 'rails' do
   minimum_coverage 70
@@ -15,7 +14,7 @@ SimpleCov.start 'rails' do
 end
 
 require 'shields_badge'
-# SimpleCov.formatter = SimpleCov::Formatter::ShieldsBadge
+SimpleCov.formatter = SimpleCov::Formatter::ShieldsBadge
 # SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
