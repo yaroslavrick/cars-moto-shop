@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@3
+  codacy: codacy/coverage@1.0.0
 
 executors:
   default:
@@ -104,6 +105,16 @@ jobs:
       - setup_environment
       - run_specs
 
+  upload-coverage:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Upload coverage report to Codacy
+          command: |
+            curl -Ls https://coverage.codacy.com/get.sh | CODACY_PROJECT_TOKEN=b111dfdd0a434c0f99a9bf7d9e66d809 bash -s report \
+            -r coverage/coverage.json
+
 workflows:
   version: 2.1
   build:
@@ -112,3 +123,6 @@ workflows:
       - specs:
           requires:
             - lintering
+      - upload-coverage:
+          requires:
+            - specs
