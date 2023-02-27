@@ -9,15 +9,23 @@ jobs:
   codecov:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.1.2
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: npm install
+        run: bundle install --jobs 4 --retry 3
+      - name: Create and migrate database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
       - name: Run tests
-        run: npm run test
+        run: bundle exec rspec
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/lcov.info
-          flags: unittests
+          file: ./coverage/.resultset.json
+          flags: rspec
