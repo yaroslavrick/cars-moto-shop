@@ -113,8 +113,14 @@ jobs:
       - run:
           name: Upload coverage report to Codacy
           command: |
-            curl -Ls https://coverage.codacy.com/get.sh | CODACY_PROJECT_TOKEN=b111dfdd0a434c0f99a9bf7d9e66d809 bash -s report \
-            -r coverage/coverage.json
+#            curl -Ls https://coverage.codacy.com/get.sh | CODACY_PROJECT_TOKEN=b111dfdd0a434c0f99a9bf7d9e66d809 bash -s report \
+#            -r coverage/coverage.json
+            coverage-reporter report \
+            -l Ruby \
+            --partial \
+            --prefix /home/circleci/repo \
+            --commit-uuid $CIRCLE_SHA1 \
+            --remote-token $CODACY_PROJECT_TOKEN
 
 workflows:
   version: 2.1
