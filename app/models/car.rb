@@ -1,12 +1,19 @@
 # frozen_string_literal: true
 
 class Car < ApplicationRecord
-  validates :make, presence: true, length: { minimum: 2, too_short: '%<count>s characters is the minimum allowed' }
+  MAKE_FIELD_MINIMUM_LENGTH = 2
+  YEAR_FIELD_GREATER_THEN = 1900
+  PRICE_FIELD_GREATER_THEN = 0
+  DESCRIPTION_FIELD_MIN_LENGTH = 6
+  DESCRIPTION_FIELD_MAX_LENGTH = 6
+
+  validates :make, presence: true, length: { minimum: MAKE_FIELD_MINIMUM_LENGTH,
+                                             too_short: '%<count>s characters is the minimum allowed' }
   validates :model, presence: true
-  validates :year, presence: true, numericality: { only_integer: true, greater_than: 1900 }
+  validates :year, presence: true, numericality: { only_integer: true, greater_than: YEAR_FIELD_GREATER_THEN }
   validates :odometer, presence: true, numericality: { only_integer: true }
-  validates :price, presence: true, numericality: { greater_than: 0 }
-  validates :description, presence: true, length: { in: 6..300,
+  validates :price, presence: true, numericality: { greater_than: PRICE_FIELD_GREATER_THEN }
+  validates :description, presence: true, length: { in: DESCRIPTION_FIELD_MIN_LENGTH..DESCRIPTION_FIELD_MAX_LENGTH,
                                                     too_short: '%<count>s characters is the minimum allowed',
                                                     too_long: '%<count>s characters is the maximum allowed' }
 
