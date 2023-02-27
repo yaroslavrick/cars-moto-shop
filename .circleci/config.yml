@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@3
-  codacy: codacy/coverage@1.0.0
+  coverage-reporter: codacy/coverage-reporter@13.13.0
 
 executors:
   default:
