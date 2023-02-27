@@ -2,8 +2,8 @@
 
 require 'simplecov'
 require 'simplecov-lcov'
+require 'simplecov-json'
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
-# SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::LcovFormatter,
   SimpleCov::Formatter::JSONFormatter,
