@@ -1019,7 +1019,7 @@
           null
         ]
       },
-      "/mnt/sda2/projects/epam/RUBY_LAB/howework/car_advertisements_web/app/services/cars_service/search_service.rb": {
+      "/mnt/sda2/projects/epam/RUBY_LAB/howework/car_advertisements_web/app/queries/cars_service/search_service.rb": {
         "lines": [
           null,
           null,
@@ -1081,7 +1081,7 @@
           null
         ]
       },
-      "/mnt/sda2/projects/epam/RUBY_LAB/howework/car_advertisements_web/app/services/cars_service/sort_service.rb": {
+      "/mnt/sda2/projects/epam/RUBY_LAB/howework/car_advertisements_web/app/queries/cars_service/sort_service.rb": {
         "lines": [
           null,
           null,
@@ -1102,6 +1102,6 @@
         ]
       }
     },
-    "timestamp": 1677486525
+    "timestamp": 1677503509
   }
 }
