@@ -13,7 +13,8 @@ jobs:
         ruby-version: [ '3.1.2' ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa
         with:
@@ -23,12 +24,12 @@ jobs:
         run: bundle install --jobs 4 --retry 3
       - name: Create and migrate database
         run: |
-          bin/rails db:create
-          bin/rails db:migrate
+          bundle exec rails db:create
+          bundle exec rails db:migrate
       - name: Run RSpec tests
         run: bundle exec rspec
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/.resultset.json
