@@ -43,13 +43,11 @@ RSpec.describe Car do
 
   context 'when validation types' do
     it 'not valid make length with non valid length' do
-      car.make = 'A'
-      expect(car).not_to be_valid
+      expect(build(:car, make: 'a' * (described_class::MAKE_FIELD_MINIMUM_LENGTH - 1))).not_to be_valid
     end
 
     it 'validate make length with valid length' do
-      car.make = 'Ab'
-      expect(car).to be_valid
+      expect(build(:car, make: 'a' * described_class::MAKE_FIELD_MINIMUM_LENGTH)).to be_valid
     end
 
     it 'not valid with year non integer value' do
@@ -57,19 +55,12 @@ RSpec.describe Car do
       expect(car).not_to be_valid
     end
 
-    it 'validate year numericality with valid value' do
-      car.year = 1951
-      expect(car).to be_valid
+    it 'validate year greater than YEAR_FIELD_GREATER_THEN' do
+      expect(build(:car, year: described_class::YEAR_FIELD_GREATER_THEN + 1)).to be_valid
     end
 
-    it 'validate year greater than 1900' do
-      car.year = 1901
-      expect(car).to be_valid
-    end
-
-    it 'not valid with year less than 1900' do
-      car.year = 1899
-      expect(car).not_to be_valid
+    it 'not valid with year equal YEAR_FIELD_GREATER_THEN' do
+      expect(build(:car, year: described_class::YEAR_FIELD_GREATER_THEN)).not_to be_valid
     end
 
     it 'not valid odometer numericality with non integer value' do
@@ -77,9 +68,12 @@ RSpec.describe Car do
       expect(car).not_to be_valid
     end
 
-    it 'validate odometer numericality' do
-      car.odometer = 80_000
-      expect(car).to be_valid
+    it 'validate odometer with ODOMETER_FIELD_MINIMUM_NUM value' do
+      expect(build(:car, odometer: described_class::ODOMETER_FIELD_MINIMUM_NUM)).to be_valid
+    end
+
+    it 'not valid odometer with less then ODOMETER_FIELD_MINIMUM_NUM value' do
+      expect(build(:car, odometer: described_class::ODOMETER_FIELD_MINIMUM_NUM - 1)).not_to be_valid
     end
 
     it 'not validate price with non numeric value' do
@@ -87,34 +81,28 @@ RSpec.describe Car do
       expect(car).not_to be_valid
     end
 
-    it 'validate price numericality' do
-      car.price = 9.99
-      expect(car).to be_valid
+    it 'not validate price equal PRICE_FIELD_GREATER_THEN value' do
+      expect(build(:car, price: described_class::PRICE_FIELD_GREATER_THEN)).not_to be_valid
     end
 
-    it 'not validate price equal 0' do
-      car.price = 0
-      expect(car).not_to be_valid
+    it 'validate price greater than PRICE_FIELD_GREATER_THEN value' do
+      expect(build(:car, price: described_class::PRICE_FIELD_GREATER_THEN + 1)).to be_valid
     end
 
-    it 'validate price greater than 0' do
-      car.price = 0.5
-      expect(car).to be_valid
+    it 'not validate description with empty string' do
+      expect(build(:car, description: '')).not_to be_valid
     end
 
-    it 'not validate description with length less than 6 symbols' do
-      car.description = '12345'
-      expect(car).not_to be_valid
+    it 'not validate description with length more than DESCRIPTION_FIELD_MAX_LENGTH symbols' do
+      expect(build(:car, description: 'a' * (described_class::DESCRIPTION_FIELD_MAX_LENGTH + 1))).not_to be_valid
     end
 
-    it 'not validate description with length more than 300 symbols' do
-      car.description = FFaker::Lorem.characters(301)
-      expect(car).not_to be_valid
+    it 'validate description length with DESCRIPTION_FIELD_MIN_LENGTH symbols' do
+      expect(build(:car, description: 'a' * described_class::DESCRIPTION_FIELD_MIN_LENGTH)).to be_valid
     end
 
-    it 'validate description length' do
-      car.description = FFaker::Lorem.characters(300)
-      expect(car).to be_valid
+    it 'validate description length with DESCRIPTION_FIELD_MAX_LENGTH symbols' do
+      expect(build(:car, description: 'a' * described_class::DESCRIPTION_FIELD_MAX_LENGTH)).to be_valid
     end
   end
 
@@ -129,21 +117,30 @@ RSpec.describe Car do
 
   describe 'error message' do
     it 'returns proper error message for make' do
-      car.make = 'A'
+      car.make = 'a' * (described_class::MAKE_FIELD_MINIMUM_LENGTH - 1)
       car.valid?
-      expect(car.errors[:make]).to include('2 characters is the minimum allowed')
+
+      expect(car.errors[:make]).to include(
+        "#{described_class::MAKE_FIELD_MINIMUM_LENGTH} characters is the minimum allowed"
+      )
     end
 
     it 'returns proper error message for description min length' do
-      car.description = 'Abcde'
+      car.description = 'a' * (described_class::DESCRIPTION_FIELD_MIN_LENGTH - 1)
       car.valid?
-      expect(car.errors[:description]).to include('6 characters is the minimum allowed')
+
+      expect(car.errors[:description]).to include(
+        "#{described_class::DESCRIPTION_FIELD_MIN_LENGTH} characters is the minimum allowed"
+      )
     end
 
     it 'returns proper error message for description max length' do
-      car.description = FFaker::Lorem.characters(301)
+      car.description = 'a' * (described_class::DESCRIPTION_FIELD_MAX_LENGTH + 1)
       car.valid?
-      expect(car.errors[:description]).to include('300 characters is the maximum allowed')
+
+      expect(car.errors[:description]).to include(
+        "#{described_class::DESCRIPTION_FIELD_MAX_LENGTH} characters is the maximum allowed"
+      )
     end
   end
 
