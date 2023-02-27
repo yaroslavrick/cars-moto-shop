@@ -5,8 +5,8 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    @cars = CarsService::SearchService.new(params: params['filter_params'], data: @cars).call if search_params.present?
-    @cars = CarsService::SortService.new(params: params[:sort_by], data: @cars).call if valid_sort_params?
+    @cars = CarsService::SearchService.new(params: params['filter_params']).call if search_params.present?
+    @cars = CarsService::SortService.new(params: params[:sort_by]).call if valid_sort_params?
     @total_cars_count = @cars.count
     @pagy, @cars = pagy @cars
   end

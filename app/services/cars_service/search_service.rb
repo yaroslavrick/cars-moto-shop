@@ -2,7 +2,7 @@
 
 module CarsService
   class SearchService
-    def initialize(params:, data:)
+    def initialize(params:, data: Car.all)
       @params = params
       @data = data
     end

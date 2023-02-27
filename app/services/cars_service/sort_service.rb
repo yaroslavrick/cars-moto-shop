@@ -4,7 +4,7 @@ module CarsService
   class SortService
     attr_reader :data
 
-    def initialize(params:, data:)
+    def initialize(params:, data: Car.all)
       @params = params
       @data = data
     end
