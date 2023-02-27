@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-#  codecov: codecov/codecov@3
+  codecov: codecov/codecov@3
   coverage-reporter: codacy/coverage-reporter@13.13.0
 
 executors:
@@ -64,7 +64,7 @@ commands:
       - store_artifacts:
           path: ~/repo/coverage
           destination: coverage
-#      - codecov/upload
+      - codecov/upload
 
   run_rubocop:
     steps:
@@ -115,12 +115,12 @@ jobs:
           command: |
 #            curl -Ls https://coverage.codacy.com/get.sh | CODACY_PROJECT_TOKEN=b111dfdd0a434c0f99a9bf7d9e66d809 bash -s report \
 #            -r coverage/coverage.json
-            coverage-reporter report \
-            -l Ruby \
-            --partial \
-            --prefix /home/circleci/repo \
-            --commit-uuid $CIRCLE_SHA1 \
-            --remote-token $CODACY_PROJECT_TOKEN
+             coverage-reporter report \
+             -l Ruby \
+             --partial \
+             --prefix /home/circleci/repo \
+             --commit-uuid $CIRCLE_SHA1 \
+             --remote-token $CODACY_PROJECT_TOKEN
 
 workflows:
   version: 2.1
