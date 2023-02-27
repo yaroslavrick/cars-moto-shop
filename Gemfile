@@ -47,7 +47,7 @@ group :development, :test do
   gem 'rubocop', '~> 1.44.1'
   gem 'rubocop-md', '~> 1.2.0'
   gem 'rubocop-performance', '~> 1.16'
-  gem 'rubocop-rails', '~> 2.17'
+  gem 'rubocop-rails', '~> 2.18'
   gem 'rubocop-rake', '~> 0.6'
   gem 'rubocop-rspec', '~>2.18'
 end
@@ -60,7 +60,7 @@ end
 group :test do
   gem 'database_cleaner', '~> 2.0.1'
   gem 'shoulda-matchers', '~> 5.1.0'
-  gem 'simplecov', '~> 0.22.0'
+  gem 'simplecov', '~> 0.22.0', require: false
   gem 'simplecov-html', '~> 0.12.3'
   gem 'simplecov-lcov', '~> 0.8.0'
   gem 'simplecov-shields-badge', '~> 0.1.0'
