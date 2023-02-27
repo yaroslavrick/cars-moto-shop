@@ -1,6 +1,5 @@
 # Car advertisements web
-[![codecov](https://codecov.io/github/codecov/example-ruby/branch/main/graph/badge.svg?token=478c35d8-0844-42ac-b478-d1fea7a21a58)](https://app.codecov.io/github/yaroslavrick/car_advertisements_web)
-
+[![codecov](https://codecov.io/gh/yaroslavrick/car_advertisements_web/branch/development/graph/badge.svg?token=5ZHMKW9JZX)](https://codecov.io/gh/yaroslavrick/car_advertisements_web)
 ### Requirements
 
 - Ruby 3.1.2
