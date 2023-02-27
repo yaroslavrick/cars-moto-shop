@@ -13,8 +13,8 @@ jobs:
         image: postgres:latest
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: myapp_test
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: car_advertisements_web
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
@@ -31,10 +31,6 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
-      - name: Create and migrate database
-        run: |
-          bin/rails db:create
-          bin/rails db:migrate
       - name: Run RSpec tests
         run: bundle exec rspec
       - name: Upload coverage to Codecov
