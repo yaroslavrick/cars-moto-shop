@@ -8,20 +8,16 @@ module CarsService
     end
 
     def call
-      search
-      @data
-    end
-
-    private
-
-    def search
       search_by_make
       search_by_model
       search_by_year_from
       search_by_year_to
       search_by_price_from
       search_by_price_to
+      @data
     end
+
+    private
 
     def search_by_make
       return @data if @params['make'].blank?
