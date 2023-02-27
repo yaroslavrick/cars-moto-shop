@@ -22,6 +22,15 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install --jobs 4 --retry 3
+      - name: Set up PostgreSQL
+        uses: docker://postgres:12-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: myapp_test
+        with:
+          healthcheck: |
+            test -n "$(pg_isready -U postgres)"
       - name: Create and migrate database
         run: |
           bundle exec rails db:create
