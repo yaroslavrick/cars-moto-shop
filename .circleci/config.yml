@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@3
 
 executors:
   default:
@@ -58,12 +56,9 @@ commands:
             bundle exec rspec --format progress \
                               --out /tmp/test-results/rspec.xml \
                               $TEST_FILES
-#            curl -s https://codecov.io/bash | bash -s -- -t 478c35d8-0844-42ac-b478-d1fea7a21a58 -f /tmp/test-results/coverage/.resultset.json
-#            when: always
       - store_artifacts:
           path: ~/repo/coverage
           destination: coverage
-      - codecov/upload
 
   run_rubocop:
     steps:
