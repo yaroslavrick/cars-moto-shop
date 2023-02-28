@@ -56,7 +56,7 @@ commands:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             bundle exec rspec --format progress \
                               --format json \
-                              --out /tmp/test-results/rspec.json \
+                              --out /tmp/test-results/coverage/.resultset.json \
                               $TEST_FILES
 #            curl -s https://codecov.io/bash | bash -s -- -t 478c35d8-0844-42ac-b478-d1fea7a21a58 -f /tmp/test-results/coverage/.resultset.json
       - store_artifacts:
