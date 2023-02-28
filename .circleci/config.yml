@@ -104,21 +104,6 @@ jobs:
       - setup_environment
       - run_specs
 
-  upload-coverage:
-    executor: default
-    steps:
-      - checkout
-      - run:
-      - run:
-          name: Upload coverage report to Codacy
-          command: |
-                     coverage-reporter report \
-                     -l Ruby \
-                     --partial \
-                     --prefix /home/circleci/repo \
-                     --commit-uuid $CIRCLE_SHA1 \
-                     --remote-token $CODACY_PROJECT_TOKEN
-
 workflows:
   version: 2.1
   build:
