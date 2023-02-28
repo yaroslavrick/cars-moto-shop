@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@3
-  coverage-reporter: codacy/coverage-reporter@13.13.0
 
 executors:
   default:
@@ -47,7 +46,6 @@ commands:
             bundle exec rails db:create
             bundle exec rails db:schema:load
             bundle exec rails db:migrate
-
 
   run_specs:
     steps:
@@ -129,6 +127,3 @@ workflows:
       - specs:
           requires:
             - lintering
-      - upload-coverage:
-          requires:
-            - specs
