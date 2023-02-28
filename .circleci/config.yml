@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@3
 
 executors:
   default:
@@ -58,11 +56,9 @@ commands:
                               --format json \
                               --out /tmp/test-results/coverage/.resultset.json \
                               $TEST_FILES
-            curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN -f /tmp/test-results/coverage/.resultset.json
       - store_artifacts:
           path: ~/repo/coverage
           destination: coverage
-      - codecov/upload
 
   run_rubocop:
     steps:
