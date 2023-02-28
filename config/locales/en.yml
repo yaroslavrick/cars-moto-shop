@@ -1,33 +1,96 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  en: English
+  uk: Ukrainian
+  cars_controller:
+    car_was_successfully_created: "Car was successfully created."
+    car_was_successfully_updated: "Car was successfully updated."
+    car_was_successfully_destroyed: "Car was successfully destroyed."
+  activerecord:
+    models:
+      car: Car
+      search: Search
+      user: User
+    attributes:
+      car:
+        make: Make
+        model: Model
+        year: Year
+        odometer: Odometer
+        price: Price
+        description: Description
+  shared:
+    header:
+      home: Home
+      help: Help
+      cars_list: Cars List
+      search: Search
+      login: Login
+      sign_up: Sign Up
+      my_searches: My searches
+      logout: Log out
+    button_back_to_home_page:
+      back_to_home_page: Back to home page
+  home:
+    index:
+      help: Help
+      cars_list: Cars list
+      search: Search
+      welcome_to: "Welcome to %{site_name}!"
+  help:
+    index:
+      help_menu: You are in a help menu.
+      recommendation: If you don not know what to do, just drink good hot coffee and take a rest.
+  cars:
+    index:
+      cars: Cars
+      total_cars_count: 'Total count of found cars:'
+      sort_by: 'Sort by:'
+      sort: Sort
+      new_car: New car
+      show_this_car: Show this car
+      search_car: Search car with other params
+      no_cars_found: No cars found by your search parameters
+    car:
+      id: 'id:'
+      make: 'Make:'
+      model: 'Model:'
+      year: 'Year:'
+      odometer: 'Odometer:'
+      price: 'Price:'
+      description: 'Description:'
+      created_at: 'Date added:'
+      back_cars_list: Back to cars list
+    car_card:
+      year: 'Year:'
+      odometer: 'Odometer:'
+      price: 'Price:'
+      show_this_car: Show this car
+    sort_form:
+      sort_by: 'Sort by:'
+      sort: Sort
+      sort_options:
+        created_at_desc: Created at (newest first)
+        created_at_asc: Created at (oldest first)
+        price_asc: Price (lowest first)
+        price_desc: Price (highest first)
+  searches:
+    index:
+      my_searches: My searches
+      date: Date
+      make: Make
+      model: Model
+      year_from: Year from
+      year_to: Year to
+      price_from: Price from
+      price_to: Price to
+      search_was_successfully_destroyed: "Search was successfully destroyed."
+    new:
+      year_from: 'Year from:'
+      year_to: 'Year to:'
+      price_from: 'Price from:'
+      price_to: 'Price to:'
+      submit: 'Submit'
+  models:
+    car:
+      too_short: "%{count} characters is the minimum allowed"
+      too_long: "%{count} characters is the maximum allowed"

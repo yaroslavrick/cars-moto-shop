@@ -1,0 +1,96 @@
+uk:
+  en: English
+  uk: Українська
+  cars_controller:
+    car_was_successfully_created: "Машина успішно створена."
+    car_was_successfully_updated: "Машина успішно оновлена."
+    car_was_successfully_destroyed: "Машина успішно знищена."
+  activerecord:
+    models:
+      car: Авто
+      search: Пошку
+      user: Користувач
+    attributes:
+      car:
+        make: Марка
+        model: Модель
+        year: Рік
+        odometer: Пробіг
+        price: Ціна
+        description: Опис
+  shared:
+    header:
+      home: Додому
+      help: Допомога
+      cars_list: Список авто
+      search: Пошук
+      login: Вхід
+      sign_up: Реєстрація
+      my_searches: Мої пошуки
+      logout: Вийти
+    button_back_to_home_page:
+      back_to_home_page: Назад до головної сторінки
+  home:
+    index:
+      help: Допомога
+      cars_list: Список авто
+      search: Пошук
+      welcome_to: "Вітаємо в %{site_name}!"
+  help:
+    index:
+      help_menu: Ви в меню допомоги.
+      recommendation: Якщо Ви не знаєте, що робити - відкладіть усі справи та випийте гурнятко запашної гарячої кави.
+  cars:
+    index:
+      cars: Тачки
+      total_cars_count: 'Всього знайдено авто:'
+      sort_by: 'Сортувати по:'
+      sort: Відсортувати
+      new_car: Нове авто
+      show_this_car: Показати це авто
+      search_car: Шукати авто по іншим параметрам
+      no_cars_found: Нажаль авто з такими параметрами не знайдено
+    car:
+      id: 'id:'
+      make: 'Марка:'
+      model: 'Модель:'
+      year: 'Рік:'
+      odometer: 'Пробіг:'
+      price: 'Ціна:'
+      description: 'Опис:'
+      created_at: 'Дата створення:'
+      back_cars_list: Назад до списку авто
+    car_card:
+      year: 'Рік:'
+      odometer: 'Пробіг:'
+      price: 'Ціна:'
+      show_this_car: Показати це авто
+    sort_form:
+      sort_by: 'Сортувати по:'
+      sort: Відсортувати
+      sort_options:
+        created_at_desc: По часу створення (спершу новіші)
+        created_at_asc: По часу створення (спершу старіші)
+        price_asc: Ціна (спочатку найдешевші)
+        price_desc: Ціна (спочатку найдорожчі)
+  searches:
+    index:
+      my_searches: Мої пошуки
+      date: Дата
+      make: Виробник
+      model: Модель
+      year_from: Рік з
+      year_to: Рік по
+      price_from: Ціна з
+      price_to: Ціна по
+      search_was_successfully_destroyed: "Історія пошуків була успішно видалена."
+    new:
+      year_from: 'Рік з:'
+      year_to: 'Рік по:'
+      price_from: 'Ціна з:'
+      price_to: 'Ціна по:'
+      submit: 'Прийняти'
+  models:
+    car:
+      too_short: "%{count} символів мінімально допустимо"
+      too_long: "%{count} символів максимально допустимо"

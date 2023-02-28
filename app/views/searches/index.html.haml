@@ -1,0 +1,24 @@
+%h1 My searches
+.container
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t('.date').upcase
+        %th= t('.make').upcase
+        %th= t('.model').upcase
+        %th= t('.year_from').upcase
+        %th= t('.year_to').upcase
+        %th= t('.price_from').upcase
+        %th= t('.price_to').upcase
+    %tbody
+      - @user_searches.each do |search|
+        %tr
+          %td= search.created_at.strftime('%Y-%m-%d %H:%M')
+          %td= search.make
+          %td= search.model
+          %td= search.year_from
+          %td= search.year_to
+          %td= search.price_from
+          %td= search.price_to
+= render partial: 'shared/button_back_to_home_page'
+!= pagy_bootstrap_nav @pagy if @pagy.pages > 1
