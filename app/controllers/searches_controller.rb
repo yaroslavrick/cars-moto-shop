@@ -20,8 +20,6 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    return false if params['filter_params'].blank?
-
     params.require(:filter_params).permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
   end
 
