@@ -58,7 +58,6 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner', '~> 2.0.1'
   gem 'shoulda-matchers', '~> 5.1.0'
   gem 'simplecov', '~> 0.22.0'
   gem 'simplecov-html', '~> 0.12.3'
