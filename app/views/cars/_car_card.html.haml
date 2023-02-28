@@ -1,0 +1,15 @@
+.car-card.card.shadow.bg-body.rounded.h-100{:id => "#{dom_id car}", :style => "width: 18rem;"}
+  = image_tag("car_card.png", width: 200, class: "card-img-top", alt: "Card image cap")
+  .card-body.d-flex.flex-column.justify-content-between
+    %h4.card-title= "#{car.make} #{car.model}"
+    %p.card-text
+      %strong= t('.year')
+      = car.year
+    %p.card-text
+      %strong= t('.odometer')
+      = car.odometer
+    %p.card-text
+      %strong= t('.price')
+      = car.price
+  .card-footer.text-muted.mx-auto
+    = link_to t(".show_this_car"), car.try(:id) ? car : '#', class: "btn btn-primary align-self-end btn-block", style: "margin-top: auto;"
