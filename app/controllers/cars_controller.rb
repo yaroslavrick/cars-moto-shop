@@ -5,8 +5,8 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
-    @cars = CarsService::SearchService.new(params: params['filter_params']).call if search_params.present?
-    @cars = CarsService::SortService.new(params: params[:sort_by]).call if valid_sort_params?
+    search
+    sort
     @total_cars_count = @cars.count
     @pagy, @cars = pagy @cars
   end
@@ -17,10 +17,14 @@ class CarsController < ApplicationController
 
   private
 
-  def search_params
-    return false if params['filter_params'].blank?
+  def search
+    return unless params['filter_params'].present? && params['filter_params'].keys.any?
 
-    params.require(:filter_params).permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
+    @cars = CarsService::SearchService.new(params: params['filter_params']).call
+  end
+
+  def sort
+    @cars = CarsService::SortService.new(params: params[:sort_by]).call if valid_sort_params?
   end
 
   def valid_sort_params?
