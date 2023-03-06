@@ -31,7 +31,7 @@ RSpec.describe User do
     it { is_expected.not_to allow_value('test').for(:email) }
 
     context 'when password is too short' do
-      subject(:new_user) { build(:user, password: '1234567') }
+      subject(:new_user) { build(:user, password: '1234567', password_confirmation: '1234567') }
 
       it { is_expected.not_to be_valid }
 
