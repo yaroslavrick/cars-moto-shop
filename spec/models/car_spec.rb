@@ -240,37 +240,37 @@ RSpec.describe Car do
 
     context 'when filter by make' do
       it 'returns car with the specific make' do
-        expect(described_class.filter_by_make('Opel')).to match_array([car1])
+        expect(described_class.filter_by_make('Opel')).to contain_exactly(car1)
       end
     end
 
     context 'when filter by model' do
       it 'returns car with the specific model' do
-        expect(described_class.filter_by_model('Civic')).to match_array([car2])
+        expect(described_class.filter_by_model('Civic')).to contain_exactly(car2)
       end
     end
 
     context 'when filter by year from' do
       it 'returns car with the specific year from' do
-        expect(described_class.filter_by_year_from(2004)).to match_array([car3, car4])
+        expect(described_class.filter_by_year_from(2004)).to contain_exactly(car3, car4)
       end
     end
 
     context 'when filter by year to' do
       it 'returns car with the specific year to' do
-        expect(described_class.filter_by_year_to(2002)).to match_array([car1, car2])
+        expect(described_class.filter_by_year_to(2002)).to contain_exactly(car1, car2)
       end
     end
 
     context 'when filter by price from' do
       it 'returns car with the specific price to' do
-        expect(described_class.filter_by_price_from(1000)).to match_array([car2, car3, car4])
+        expect(described_class.filter_by_price_from(1000)).to contain_exactly(car2, car3, car4)
       end
     end
 
     context 'when filter by price to' do
       it 'returns car with the specific price to' do
-        expect(described_class.filter_by_price_to(1000)).to match_array([car1, car2])
+        expect(described_class.filter_by_price_to(1000)).to contain_exactly(car1, car2)
       end
     end
 
