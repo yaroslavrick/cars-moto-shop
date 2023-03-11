@@ -52,7 +52,7 @@ module CarsService
     def search_by_price_to
       return @data if @params['price_to'].blank?
 
-      @data = @data.filter_by_price_to(@params['price_to'].to_i) if @params['year_to'].present?
+      @data = @data.filter_by_price_to(@params['price_to'].to_i)
     end
   end
 end
