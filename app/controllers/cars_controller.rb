@@ -9,6 +9,7 @@ class CarsController < ApplicationController
     sort
     @total_cars_count = @cars.count
     @pagy, @cars = pagy @cars
+    @cars
   end
 
   def show
