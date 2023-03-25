@@ -7,8 +7,7 @@ module Cars
     attr_reader :data
 
     def call
-      @data = Car.all
-      @data.filter_sort_by(context.params)
+      context.cars.filter_sort_by(context.params)
     end
   end
 end
