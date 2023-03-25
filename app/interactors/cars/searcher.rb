@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module CarsService
-  class SearchService
+module Cars
+  class Searcher
     include Interactor
     def call
       @data = Car.all

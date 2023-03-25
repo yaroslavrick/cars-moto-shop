@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module CarsService
-  class SortService
+module Cars
+  class Sorter
     include Interactor
 
     attr_reader :data
