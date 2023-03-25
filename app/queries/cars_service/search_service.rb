@@ -25,7 +25,7 @@ module CarsService
     def search_by_model
       return @data if context.params['model'].blank?
 
-      @data = @data.filter_by_model(@params['model'])
+      @data = @data.filter_by_model(context.params['model'])
     end
 
     def search_by_year_from
