@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe CarsService::SortService, type: :service do
+RSpec.describe Cars::Sorter, type: :service do
   describe '.call' do
-    subject(:cars) { described_class.new(params:, data: Car.all).call }
+    subject(:cars) { described_class.new(params:, cars: Car.all).call }
 
     let(:car1) { create(:car, :zaz_sens) }
     let(:car2) { create(:car, :opel_kadett) }
