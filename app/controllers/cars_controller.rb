@@ -29,11 +29,11 @@ class CarsController < ApplicationController
   end
 
   def search_cars
-    Cars::Searcher.new(params: params['filter_params']).call
+    Cars::Searcher.new(params: params['filter_params'], cars: @cars).call
   end
 
   def sort_cars
-    Cars::Sorter.new(params: params[:sort_by]).call
+    Cars::Sorter.new(params: params[:sort_by], cars: @cars).call
   end
 
   def valid_sort_params?
