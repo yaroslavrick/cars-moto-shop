@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Cars::Sorter, type: :service do
   describe '.call' do
-    subject(:cars) { described_class.new(params:, cars: Car.all).call }
+    subject(:cars) { described_class.call(params:, cars: Car.all) }
 
     let(:car1) { create(:car, :zaz_sens) }
     let(:car2) { create(:car, :opel_kadett) }
@@ -14,7 +14,7 @@ RSpec.describe Cars::Sorter, type: :service do
       let(:params) { { 'created_at' => 'ASC' } }
 
       it 'returns sorted data' do
-        expect(cars).to eq([car1, car2, car3])
+        expect(cars.cars).to eq([car1, car2, car3])
       end
     end
 
@@ -22,7 +22,7 @@ RSpec.describe Cars::Sorter, type: :service do
       let(:params) { { 'created_at' => 'DESC' } }
 
       it 'returns sorted data' do
-        expect(cars).to eq([car1, car2, car3].reverse)
+        expect(cars.cars).to eq([car1, car2, car3].reverse)
       end
     end
 
@@ -30,7 +30,7 @@ RSpec.describe Cars::Sorter, type: :service do
       let(:params) { { 'price' => 'ASC' } }
 
       it 'returns sorted data' do
-        expect(cars).to eq([car2, car1, car3])
+        expect(cars.cars).to eq([car2, car1, car3])
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe Cars::Sorter, type: :service do
       let(:params) { { 'price' => 'DESC' } }
 
       it 'returns sorted data' do
-        expect(cars).to eq([car2, car1, car3].reverse)
+        expect(cars.cars).to eq([car2, car1, car3].reverse)
       end
     end
   end
