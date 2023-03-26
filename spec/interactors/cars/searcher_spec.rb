@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Cars::Searcher, type: :service do
   describe '.call' do
-    subject(:cars) { described_class.call(params:, cars: Car.all) }
+    subject(:context) { described_class.call(params:, cars: Car.all) }
 
     let!(:car1) { create(:car, :nissan_leaf) }
     let!(:car2) { create(:car, :zaz_sens) }
@@ -17,7 +17,7 @@ RSpec.describe Cars::Searcher, type: :service do
       end
 
       it 'returns filtered data' do
-        expect(cars.cars.first).to eq(car2)
+        expect(context.cars.first).to eq(car2)
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'make' => 'Zaz' } }
 
       it 'returns filtered data' do
-        expect(cars.cars.first).to eq(car2)
+        expect(context.cars.first).to eq(car2)
       end
     end
 
@@ -33,7 +33,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'model' => 'Leaf' } }
 
       it 'returns filtered data' do
-        expect(cars.cars.first.model).to eq('Leaf')
+        expect(context.cars.first.model).to eq('Leaf')
       end
     end
 
@@ -41,7 +41,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'year_from' => 1985, 'year_to' => 2012 } }
 
       it 'returns filtered data' do
-        expect(cars.cars).to include(car1, car3)
+        expect(context.cars).to include(car1, car3)
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'year_from' => '2013' } }
 
       it 'returns filtered data' do
-        expect(cars.cars).to include(car2)
+        expect(context.cars).to include(car2)
       end
     end
 
@@ -57,7 +57,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'year_to' => '2012' } }
 
       it 'returns filtered data' do
-        expect(cars.cars).to include(car1, car3)
+        expect(context.cars).to include(car1, car3)
       end
     end
 
@@ -65,7 +65,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'price_from' => 3000, 'price_to' => 15_000 } }
 
       it 'returns filtered data' do
-        expect(cars.cars).to include(car1, car2)
+        expect(context.cars).to include(car1, car2)
       end
     end
 
@@ -73,7 +73,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'price_from' => 10_000 } }
 
       it 'returns filtered data' do
-        expect(cars.cars).to include(car1)
+        expect(context.cars).to include(car1)
       end
     end
 
@@ -81,7 +81,7 @@ RSpec.describe Cars::Searcher, type: :service do
       let(:params) { { 'price_to' => 10_000 } }
 
       it 'returns filtered data' do
-        expect(cars.cars).to include(car2, car3)
+        expect(context.cars).to include(car2, car3)
       end
     end
   end
