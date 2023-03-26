@@ -21,19 +21,19 @@ class CarsController < ApplicationController
   def search
     return unless params['filter_params'].present? && params['filter_params'].keys.any?
 
-    @cars = search_cars
+    @cars = search_cars.cars
   end
 
   def sort
-    @cars = sort_cars if valid_sort_params?
+    @cars = sort_cars.cars if valid_sort_params?
   end
 
   def search_cars
-    Cars::Searcher.new(params: params['filter_params'], cars: @cars).call
+    Cars::Searcher.call(params: params['filter_params'], cars: @cars)
   end
 
   def sort_cars
-    Cars::Sorter.new(params: params[:sort_by], cars: @cars).call
+    Cars::Sorter.call(params: params[:sort_by], cars: @cars)
   end
 
   def valid_sort_params?
