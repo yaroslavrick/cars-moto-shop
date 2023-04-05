@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'activesupport', '~> 7.0.4.3'
+gem 'activesupport', '>= 7.0.4.3'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'bootstrap', '~> 5.2.3'
 gem 'devise', '~> 4.8'
