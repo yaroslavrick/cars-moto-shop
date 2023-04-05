@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-gem 'activesupport', '>= 7.0.4.3'
+gem 'activesupport', '~> 7.0.4.3'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'bootstrap', '~> 5.2.3'
 gem 'devise', '~> 4.8'
@@ -27,6 +27,7 @@ gem 'overcommit', '~> 0.60.0'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4.5'
 gem 'puma', '~> 5.0'
+gem 'rack', '~> 2.2.6.4'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'sassc-rails', '~> 2.1.2'
