@@ -424,7 +424,7 @@ DEPENDENCIES
   pry-rails (~> 0.3.9)
   puma (~> 5.0)
   rack (~> 2.2.6.4)
-  rails (~> 7.0.4, >= 7.0.4.2)
+  rails (~> 7.0.4, >= 7.0.4.3)
   rails-i18n (~> 7.0.0)
   rails_best_practices (~> 1.23.2)
   rspec (~> 3.12.0)
