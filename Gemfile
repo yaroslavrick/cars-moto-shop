@@ -6,7 +6,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', '~> 1.16', require: false
-gem 'bootstrap', '~> 5.2.3'
 gem 'devise', '~> 4.8'
 # rubocop:disable Bundler/OrderedGems
 # https://github.com/hisea/devise-bootstrap-views/issues/55
