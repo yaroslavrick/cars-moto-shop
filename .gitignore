@@ -45,3 +45,10 @@ yarn-debug.log*
 .env
 .env.development
 coverage
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+.yarn/
+.pnp.cjs
+.pnp.loader.mjs
