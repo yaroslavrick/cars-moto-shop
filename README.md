@@ -9,33 +9,67 @@
 
 ```zsh
 git@github.com:yaroslavrick/car_advertisements_web.git
-cd car_advertisements_web
 ```
 
-#### 2. Copy the .env.example file.
+#### 2. Move into the project directory:
 
-```zsh
-cp .env.example .env
+```bash
+cd car_advertisements_web
 ```
 
 #### 3. Install dependencies
 
 ```zsh
-bundle
+bundle install
 ```
 
-#### 4. Create and setup the database
+#### 4. Copy the .env.example file.
 
 ```zsh
-rails db:create && rails db:migrate && rails db:seed
+cp .env.example .env.development
 ```
 
-#### 5. Start the app
+#### 5. Setup Docker services (PostgreSQL and Redis):
 
 ```zsh
-rails s
+docker-compose up
 ```
 
-Visit the app at localhost: http://localhost:3000
+Ensure that the ports configured in `.env` do not conflict with your running services.
 
-Visit the app at web: https://caradvertisementsweb-production.up.railway.app/
+
+#### 6. Create the database:
+
+```bash
+bundle exec rails db:create
+```
+
+#### 7. Run database migrations:
+
+```bash
+bundle exec rails db:migrate
+```
+
+#### 8. (Optional) Run seed data to create some sample data:
+
+```bash
+bundle exec rails db:seed
+```
+
+## Usage
+
+To start the app, run the following command:
+
+```bash
+bundle exec rails server
+```
+
+Once the server is running, open your web browser and go to http://localhost:3000 to access the app.
+
+## Testing
+
+To run the test suite, use the following command:
+
+```bash
+bundle exec rspec
+```
