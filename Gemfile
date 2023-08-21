@@ -6,22 +6,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', '~> 1.16', require: false
-gem 'bootstrap', '~> 5.2.3'
 gem 'devise', '~> 4.8'
 # rubocop:disable Bundler/OrderedGems
 # https://github.com/hisea/devise-bootstrap-views/issues/55
 gem 'devise-i18n', '~> 1.10.2'
 gem 'devise-bootstrap-views', '~> 1.0'
 # rubocop:enable Bundler/OrderedGems
+gem 'cssbundling-rails', '~> 1.2'
 gem 'dotenv-rails', '~> 2.7.6'
 gem 'ffaker', '~> 2.21.0'
 gem 'hamlit', '~> 3.0.3'
 gem 'hamlit-rails', '~> 0.2.3'
 gem 'html2haml', '~> 2.2.0'
-gem 'importmap-rails', '~> 1.1.5'
 gem 'interactor', '~> 3.1.2'
 gem 'jbuilder', '~> 2.11.5'
 gem 'jquery-rails', '~> 4.5.1'
+gem 'jsbundling-rails', '~> 1.1.2'
 gem 'nokogiri', '~> 1.15.4'
 gem 'overcommit', '~> 0.60.0'
 gem 'pagy', '~> 6.0'
@@ -30,7 +30,6 @@ gem 'puma', '~> 5.6.7'
 gem 'rack', '~> 2.2.6'
 gem 'rails', '~> 7.0.4', '>= 7.0.5.1'
 gem 'rails-i18n', '~> 7.0.0'
-gem 'sassc-rails', '~> 2.1.2'
 gem 'sprockets-rails', '~> 3.4.2'
 gem 'stimulus-rails', '~> 1.2.1'
 gem 'turbo-rails', '~> 1.3.3'
