@@ -19,6 +19,7 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail
+    command: ['bundle', 'exec', 'rubocop']
   Fasterer:
     enabled: true
     on_warn: fail

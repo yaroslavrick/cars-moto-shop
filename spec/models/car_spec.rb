@@ -225,70 +225,73 @@ RSpec.describe Car do
   end
 
   describe 'scopes' do
-    let!(:car1) do
+    let!(:opel_kadett) do
       create(:car, :opel_kadett)
     end
-    let!(:car2) do
+    let!(:honda_civic) do
       create(:car, :honda_civic)
     end
-    let!(:car3) do
+    let!(:toyota_corolla) do
       create(:car, :toyota_corolla)
     end
-    let!(:car4) do
+    let!(:zaz_sens) do
       create(:car, :zaz_sens)
     end
 
     context 'when filter by make' do
       it 'returns car with the specific make' do
-        expect(described_class.filter_by_make('Opel')).to match_array([car1])
+        expect(described_class.filter_by_make('Opel')).to contain_exactly(opel_kadett)
       end
     end
 
     context 'when filter by model' do
       it 'returns car with the specific model' do
-        expect(described_class.filter_by_model('Civic')).to match_array([car2])
+        expect(described_class.filter_by_model('Civic')).to contain_exactly(honda_civic)
       end
     end
 
     context 'when filter by year from' do
       it 'returns car with the specific year from' do
-        expect(described_class.filter_by_year_from(2004)).to match_array([car3, car4])
+        expect(described_class.filter_by_year_from(2004)).to contain_exactly(toyota_corolla, zaz_sens)
       end
     end
 
     context 'when filter by year to' do
       it 'returns car with the specific year to' do
-        expect(described_class.filter_by_year_to(2002)).to match_array([car1, car2])
+        expect(described_class.filter_by_year_to(2002)).to contain_exactly(opel_kadett, honda_civic)
       end
     end
 
     context 'when filter by price from' do
       it 'returns car with the specific price to' do
-        expect(described_class.filter_by_price_from(1000)).to match_array([car2, car3, car4])
+        expect(described_class.filter_by_price_from(1000)).to contain_exactly(honda_civic, toyota_corolla, zaz_sens)
       end
     end
 
     context 'when filter by price to' do
       it 'returns car with the specific price to' do
-        expect(described_class.filter_by_price_to(1000)).to match_array([car1, car2])
+        expect(described_class.filter_by_price_to(1000)).to contain_exactly(opel_kadett, honda_civic)
       end
     end
 
     context 'when filter sort by' do
       it 'return cars sorted by price ASC' do
-        expect(described_class.filter_sort_by('price ASC')).to eq([car1, car2, car4, car3])
+        expect(described_class.filter_sort_by('price ASC')).to eq([opel_kadett, honda_civic, zaz_sens, toyota_corolla])
       end
 
       it 'return cars sorted by price DESC' do
-        expect(described_class.filter_sort_by('price DESC')).to eq([car1, car2, car4, car3].reverse)
+        expect(described_class.filter_sort_by('price DESC')).to eq([opel_kadett, honda_civic, zaz_sens,
+                                                                    toyota_corolla].reverse)
       end
 
       it 'return cars sorted by created_at ASC' do
-        expect(described_class.filter_sort_by('created_at ASC')).to eq([car1, car2, car3, car4])
+        expect(described_class.filter_sort_by('created_at ASC')).to eq([opel_kadett, honda_civic, toyota_corolla,
+                                                                        zaz_sens])
       end
 
       it 'return cars sorted by created_at DESC' do
-        expect(described_class.filter_sort_by('created_at DESC')).to eq([car1, car2, car3, car4].reverse)
+        expect(described_class.filter_sort_by('created_at DESC')).to eq([opel_kadett, honda_civic, toyota_corolla,
+                                                                         zaz_sens].reverse)
       end
     end
   end
