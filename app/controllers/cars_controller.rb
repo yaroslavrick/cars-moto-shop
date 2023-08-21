@@ -9,6 +9,7 @@ class CarsController < ApplicationController
     sort
     @total_cars_count = @cars.count
     @pagy, @cars = pagy @cars
+    @cars
   end
 
   def show
@@ -20,11 +21,19 @@ class CarsController < ApplicationController
   def search
     return unless params['filter_params'].present? && params['filter_params'].keys.any?
 
-    @cars = CarsService::SearchService.new(params: params['filter_params']).call
+    @cars = search_cars.cars
   end
 
   def sort
-    @cars = CarsService::SortService.new(params: params[:sort_by]).call if valid_sort_params?
+    @cars = sort_cars.cars if valid_sort_params?
+  end
+
+  def search_cars
+    Cars::Searcher.call(params: params['filter_params'], cars: @cars)
+  end
+
+  def sort_cars
+    Cars::Sorter.call(params: params[:sort_by], cars: @cars)
   end
 
   def valid_sort_params?
