@@ -51,7 +51,7 @@ en:
       show_this_car: Show this car
       search_car: Search car with other params
       no_cars_found: No cars found by your search parameters
-      create_new_car: "Add new car advertisement"
+      create_new_car: "Add new car"
     car:
       id: 'id:'
       make: 'Make:'

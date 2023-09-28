@@ -51,7 +51,7 @@ ro:
       show_this_car: Arată această mașină
       search_car: Caută o mașină cu alți parametri
       no_cars_found: Nu au fost găsite mașini pentru parametrii căutării
-      create_new_car: "Adaugă o nouă reclamă pentru mașină"
+      create_new_car: "Adaugă o nouă mașină"
     car:
       id: 'id:'
       make: 'Marca:'
