@@ -1,0 +1,102 @@
+ro:
+  en: English
+  uk: Українська
+  ro: Română
+  cars_controller:
+    car_was_successfully_created: "Mașina a fost adăugată cu succes."
+    car_was_successfully_updated: "Mașina a fost actualizată cu succes."
+    car_was_successfully_destroyed: "Mașina a fost ștearsă cu succes."
+  activerecord:
+    models:
+      car: Mașină
+      search: Căutare
+      user: Utilizator
+    attributes:
+      car:
+        make: Marcă
+        model: Model
+        year: An
+        odometer: Kilometraj
+        price: Preț
+        description: Descriere
+  shared:
+    header:
+      home: Acasă
+      help: Ajutor
+      cars_list: Lista de mașini
+      search: Căutare
+      login: Autentificare
+      sign_up: Înregistrare
+      my_searches: Căutările mele
+      logout: Deconectare
+    button_back_to_home_page:
+      back_to_home_page: Înapoi la pagina principală
+  home:
+    index:
+      help: Ajutor
+      cars_list: Lista de mașini
+      search: Căutare
+      welcome_to: "Bine ați venit la %{site_name}!"
+  help:
+    index:
+      help_menu: Sunteți în meniul de ajutor.
+      recommendation: Dacă nu știți ce să faceți, beți o cafea fierbinte și odihniți-vă un pic.
+  cars:
+    index:
+      cars: Mașini
+      total_cars_count: 'Numărul total de mașini găsite:'
+      sort_by: 'Sortează după:'
+      sort: Sortează
+      new_car: Mașină nouă
+      show_this_car: Arată această mașină
+      search_car: Caută o mașină cu alți parametri
+      no_cars_found: Nu au fost găsite mașini pentru parametrii căutării
+      create_new_car: "Adaugă o nouă reclamă pentru mașină"
+    car:
+      id: 'id:'
+      make: 'Marca:'
+      model: 'Model:'
+      year: 'An:'
+      odometer: 'Kilometraj:'
+      price: 'Preț:'
+      description: 'Descriere:'
+      created_at: 'Data adăugării:'
+      back_cars_list: Înapoi la lista de mașini
+    car_card:
+      year: 'An:'
+      odometer: 'Kilometraj:'
+      price: 'Preț:'
+      show_this_car: Arată această mașină
+    sort_form:
+      sort_by: 'Sortează după:'
+      sort: Sortează
+      sort_options:
+        created_at_desc: Crearea (cea mai recentă prima)
+        created_at_asc: Crearea (cea mai veche prima)
+        price_asc: Prețul (cel mai mic primul)
+        price_desc: Prețul (cel mai mare primul)
+    create:
+      success: "Mașina a fost adăugată cu succes."
+    new:
+      submit: "Adaugă mașina"
+  searches:
+    index:
+      my_searches: Căutările mele
+      date: Data
+      make: Marcă
+      model: Model
+      year_from: An de la
+      year_to: An până la
+      price_from: Preț de la
+      price_to: Preț până la
+      search_was_successfully_destroyed: "Căutarea a fost ștearsă cu succes."
+    new:
+      year_from: 'An de la:'
+      year_to: 'An până la:'
+      price_from: 'Preț de la:'
+      price_to: 'Preț până la:'
+      submit: 'Trimite'
+  models:
+    car:
+      too_short: "%{count} caractere este minimul permis"
+      too_long: "%{count} caractere este maximul permis"

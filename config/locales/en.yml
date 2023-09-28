@@ -1,6 +1,7 @@
 en:
   en: English
-  uk: Ukrainian
+  uk: Українська
+  ro: Română
   cars_controller:
     car_was_successfully_created: "Car was successfully created."
     car_was_successfully_updated: "Car was successfully updated."
