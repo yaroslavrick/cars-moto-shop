@@ -7,6 +7,7 @@ RSpec.describe User do
 
   describe 'ActiveRecord matchers' do
     it { is_expected.to have_many(:searches).dependent(:delete_all) }
+    it { is_expected.to have_many(:cars) }
   end
 
   describe 'User is correctly created' do
