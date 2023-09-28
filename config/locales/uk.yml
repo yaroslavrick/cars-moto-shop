@@ -50,6 +50,7 @@ uk:
       show_this_car: Показати це авто
       search_car: Шукати авто по іншим параметрам
       no_cars_found: Нажаль авто з такими параметрами не знайдено
+      create_new_car: "Додати нове авто до оголошень"
     car:
       id: 'id:'
       make: 'Марка:'
@@ -73,6 +74,12 @@ uk:
         created_at_asc: По часу створення (спершу старіші)
         price_asc: Ціна (спочатку найдешевші)
         price_desc: Ціна (спочатку найдорожчі)
+    form:
+      submit: 'Додати авто'
+    create:
+      success: "Авто було успішно додане."
+    new:
+      submit: 'Додати авто'
   searches:
     index:
       my_searches: Мої пошуки

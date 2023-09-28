@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   has_many :searches, dependent: :delete_all
+  has_many :cars, dependent: :delete_all
 end
