@@ -1,0 +1,12 @@
+ro:
+  pagy:
+    nav:
+      prev: "&lsaquo;&nbsp;Anterior"
+      next: "Următor&nbsp;&rsaquo;"
+      gap: "&hellip;"
+    info:
+      singular: "Se afișează %{from}-%{to} din %{count} element."
+      plural: "Se afișează %{from}-%{to} din %{count} elemente."
+      zero: "Nu s-au găsit elemente."
+      last: "Se afișează %{from}-%{to} din %{count} elemente."
+      page: "Pagina %{page}"

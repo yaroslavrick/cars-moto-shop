@@ -6,5 +6,5 @@
     = f.select(:sort_by, [[t('.sort_options.created_at_desc'), 'created_at desc'],
       [t('.sort_options.created_at_asc'), 'created_at asc'],
       [t('.sort_options.price_asc'), 'price asc'],
-      [t('.sort_options.price_desc'), 'price desc']], { selected: params[:sort_by]} , { class: 'form-select w-25 mw-50' })
-    = f.submit t('.sort'), class: "btn btn-primary"
+      [t('.sort_options.price_desc'), 'price desc']], { selected: params[:sort_by]} , { class: 'form-select w-100 mw-100' })
+    = f.submit t('.sort'), class: "btn btn-primary mt-2 mb-2"

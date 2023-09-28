@@ -56,6 +56,12 @@ Layout/ClassStructure:
     - public_methods
     - protected_methods
     - private_methods
+
+# Rails -----------------------------------------------------------------------
+
+Rails/NotNullColumn:
+  Enabled: false
+
 # rubocop-md
 Markdown:
   # Whether to run RuboCop against non-valid snippets
