@@ -1,14 +1,17 @@
 %p{:style => "color: green"}= notice
 %h1= t(".cars")
-.d-flex
-  - if @cars.any?
-    %p
-      = "#{t(".total_cars_count")}  "
-      %b= @total_cars_count
-  - else
-    %p= t('.no_cars_found')
-= render partial: 'cars/sort_form' if @cars.count > 1
-= link_to t('.search_car'), new_search_path, class: "btn btn-primary mt-2 mb-2" if @cars.blank?
+%div.d-flex.justify-content-between.align-items-center
+  %div
+    - if @cars.any?
+      %p
+        = "#{t(".total_cars_count")}  "
+        %b= @total_cars_count
+    - else
+      %p= t('.no_cars_found')
+    = render partial: 'cars/sort_form' if @cars.count > 1
+    = link_to t('.search_car'), new_search_path, class: "btn btn-primary mt-2 mb-2" if @cars.blank?
+  %div
+    = link_to t('.create_new_car'), new_car_path, class: "btn btn-primary mt-2 mb-2"
 != pagy_bootstrap_nav @pagy if @pagy && @pagy.pages > 1
 .container
   #cars

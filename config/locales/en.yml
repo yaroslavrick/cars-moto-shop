@@ -50,6 +50,7 @@ en:
       show_this_car: Show this car
       search_car: Search car with other params
       no_cars_found: No cars found by your search parameters
+      create_new_car: "Add new car advertisement"
     car:
       id: 'id:'
       make: 'Make:'
@@ -73,6 +74,10 @@ en:
         created_at_asc: Created at (oldest first)
         price_asc: Price (lowest first)
         price_desc: Price (highest first)
+    create:
+      success: "Car was successfully added."
+    new:
+      submit: "Add car"
   searches:
     index:
       my_searches: My searches

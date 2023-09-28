@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Car < ApplicationRecord
+  belongs_to :user
+
   MAKE_FIELD_MINIMUM_LENGTH = 2
   YEAR_FIELD_GREATER_THEN = 1900
   ODOMETER_FIELD_MINIMUM_NUM = 0
