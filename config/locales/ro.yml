@@ -3,9 +3,9 @@ ro:
   uk: Українська
   ro: Română
   cars_controller:
-    car_was_successfully_created: "Mașina a fost adăugată cu succes."
-    car_was_successfully_updated: "Mașina a fost actualizată cu succes."
-    car_was_successfully_destroyed: "Mașina a fost ștearsă cu succes."
+    car_was_successfully_created: 'Mașina a fost adăugată cu succes.'
+    car_was_successfully_updated: 'Mașina a fost actualizată cu succes.'
+    car_was_successfully_destroyed: 'Mașina a fost ștearsă cu succes.'
   activerecord:
     models:
       car: Mașină
@@ -36,7 +36,7 @@ ro:
       help: Ajutor
       cars_list: Lista de mașini
       search: Căutare
-      welcome_to: "Bine ați venit la %{site_name}!"
+      welcome_to: 'Bine ați venit la %{site_name}!'
   help:
     index:
       help_menu: Sunteți în meniul de ajutor.
@@ -51,7 +51,7 @@ ro:
       show_this_car: Arată această mașină
       search_car: Caută o mașină cu alți parametri
       no_cars_found: Nu au fost găsite mașini pentru parametrii căutării
-      create_new_car: "Adaugă o nouă mașină"
+      create_new_car: 'Adaugă o nouă mașină'
     car:
       id: 'id:'
       make: 'Marca:'
@@ -76,9 +76,9 @@ ro:
         price_asc: Prețul (cel mai mic primul)
         price_desc: Prețul (cel mai mare primul)
     create:
-      success: "Mașina a fost adăugată cu succes."
+      success: 'Mașina a fost adăugată cu succes.'
     new:
-      submit: "Adaugă mașina"
+      submit: 'Adaugă mașina'
   searches:
     index:
       my_searches: Căutările mele
@@ -89,7 +89,7 @@ ro:
       year_to: An până la
       price_from: Preț de la
       price_to: Preț până la
-      search_was_successfully_destroyed: "Căutarea a fost ștearsă cu succes."
+      search_was_successfully_destroyed: 'Căutarea a fost ștearsă cu succes.'
     new:
       year_from: 'An de la:'
       year_to: 'An până la:'
@@ -98,5 +98,5 @@ ro:
       submit: 'Trimite'
   models:
     car:
-      too_short: "%{count} caractere este minimul permis"
-      too_long: "%{count} caractere este maximul permis"
+      too_short: '%{count} caractere este minimul permis'
+      too_long: '%{count} caractere este maximul permis'
