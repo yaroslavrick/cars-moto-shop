@@ -2,6 +2,7 @@
 
 class CarsController < ApplicationController
   SORT_PARAMS = ['created_at asc', 'created_at desc', 'price asc', 'price desc'].freeze
+  before_action :authenticate_user!, only: %i[create new]
 
   def index
     @cars = Car.all
@@ -14,6 +15,19 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+  end
+
+  def new
+    @car = Car.new
+  end
+
+  def create
+    @car = current_user.cars.build(car_params)
+    if @car.save
+      redirect_to @car, notice: t('.success')
+    else
+      render 'new'
+    end
   end
 
   private
@@ -41,5 +55,9 @@ class CarsController < ApplicationController
 
     sort_params = params[:sort_by].downcase
     SORT_PARAMS.include?(sort_params)
+  end
+
+  def car_params
+    params.require(:car).permit(:make, :model, :year, :odometer, :price, :description)
   end
 end

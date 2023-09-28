@@ -5,6 +5,22 @@ require 'rails_helper'
 RSpec.describe Car do
   let(:car) { build(:car) }
 
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+  end
+
+  describe 'columns' do
+    it { is_expected.to have_db_column(:make) }
+    it { is_expected.to have_db_column(:model) }
+    it { is_expected.to have_db_column(:year) }
+    it { is_expected.to have_db_column(:odometer) }
+    it { is_expected.to have_db_column(:price) }
+    it { is_expected.to have_db_column(:description) }
+    it { is_expected.to have_db_column(:created_at) }
+    it { is_expected.to have_db_column(:updated_at) }
+    it { is_expected.to have_db_column(:user_id) }
+  end
+
   context 'when presence validation' do
     it 'is valid with valid attributes' do
       expect(car).to be_valid
@@ -213,15 +229,6 @@ RSpec.describe Car do
         "#{described_class::DESCRIPTION_FIELD_MIN_LENGTH} characters is the minimum allowed"
       )
     end
-  end
-
-  describe 'columns' do
-    it { is_expected.to have_db_column(:make) }
-    it { is_expected.to have_db_column(:model) }
-    it { is_expected.to have_db_column(:year) }
-    it { is_expected.to have_db_column(:odometer) }
-    it { is_expected.to have_db_column(:price) }
-    it { is_expected.to have_db_column(:description) }
   end
 
   describe 'scopes' do
