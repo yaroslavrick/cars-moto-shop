@@ -47,9 +47,6 @@ yarn-debug.log*
 coverage
 
 /config/credentials/test.key
-
 /config/credentials/development.key
-
 /config/credentials/production.key
-
 /config/credentials/staging.key
