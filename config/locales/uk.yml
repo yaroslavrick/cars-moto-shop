@@ -29,6 +29,7 @@ uk:
       sign_up: Реєстрація
       my_searches: Мої пошуки
       logout: Вийти
+      edit: "Редагувати профіль"
     button_back_to_home_page:
       back_to_home_page: Назад до головної сторінки
   home:

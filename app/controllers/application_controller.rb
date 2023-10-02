@@ -2,6 +2,6 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  include Internationalization
+  # include Internationalization
   skip_before_action :verify_authenticity_token
 end

@@ -2,11 +2,10 @@
 
 test_user_password = 'P@ssw0rd!'
 
-test_user = User.create!(
-  email: 'test@example.com',
-  password: test_user_password,
-  password_confirmation: test_user_password
-)
+test_user = User.find_or_create_by!(email: 'test@example.com') do |user|
+  user.password = test_user_password
+  user.password_confirmation = test_user_password
+end
 
 MAKES_TO_MODELS = {
   'Audi' => %w[A4 A6 Q5 Q7 Q8 e-tron],
