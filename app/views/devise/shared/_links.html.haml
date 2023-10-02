@@ -19,4 +19,4 @@
       url: omniauth_authorize_path(resource_name, provider), |
       method: :post,                                         |
       data: {turbo: "false"} do |f|                          |
-      = f.submit "Login using Google", class: "btn btn-primary"
+      = f.submit "Login using #{provider}", class: "btn btn-primary"
