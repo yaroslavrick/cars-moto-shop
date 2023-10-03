@@ -29,6 +29,7 @@ ro:
       sign_up: Înregistrare
       my_searches: Căutările mele
       logout: Deconectare
+      edit: ""
     button_back_to_home_page:
       back_to_home_page: Înapoi la pagina principală
   home:
