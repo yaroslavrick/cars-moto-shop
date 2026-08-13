@@ -1,5 +1,22 @@
 # Car advertisements web
 
+## Screenshots:
+
+- cars list
+<img width="3018" height="1600" alt="image" src="https://github.com/user-attachments/assets/4498c63e-6548-44d5-acb1-47679a241c26" />
+
+- filters
+<img width="3018" height="1600" alt="image" src="https://github.com/user-attachments/assets/fed81b31-5bdf-44e9-b9d3-cc52e70e52f8" />
+
+- my searches:
+<img width="3018" height="1600" alt="image" src="https://github.com/user-attachments/assets/4614c19d-1be3-466a-90d0-aa32f5351b57" />
+
+- Search page:
+<img width="3018" height="1600" alt="image" src="https://github.com/user-attachments/assets/8ad4846b-ff25-4635-90ae-b5eba29b35ae" />
+
+- Login page:
+<img width="3018" height="1600" alt="image" src="https://github.com/user-attachments/assets/2292940b-7a91-433d-83f3-5d144d6113e2" />
+
 ### Requirements
 
 - Ruby 3.1.2
